@@ -5,6 +5,7 @@ export const featuredProjects = [
     type: "AI assistant / study workflow project",
     tag: "AI",
     featured: true,
+    stack: ["AI Workflow", "Study Support", "Notes", "Productivity"],
     description:
       "A personal AI assistant concept focused on productivity, study support, structured notes, and practical AI workflows."
   },
@@ -14,6 +15,7 @@ export const featuredProjects = [
     type: "Next.js / Tailwind / Vercel",
     tag: "Web",
     featured: false,
+    stack: ["Next.js", "Tailwind", "Vercel"],
     description:
       "A premium personal CV and portfolio website built to document projects, skills, achievements, and future applications."
   },
@@ -23,6 +25,7 @@ export const featuredProjects = [
     type: "PC hardware / optimization",
     tag: "Hardware",
     featured: false,
+    stack: ["Hardware", "Benchmarks", "Optimization"],
     description:
       "A technical log for PC components, upgrade decisions, benchmark observations, troubleshooting, and performance optimization."
   }
@@ -32,6 +35,7 @@ export const technicalSkills = [
   {
     title: "AI Tools & Prompting",
     initial: "AI",
+    focus: "Active",
     items: [
       "Prompting for research, study planning, and structured outputs",
       "AI-assisted note organization and productivity workflows",
@@ -41,6 +45,7 @@ export const technicalSkills = [
   {
     title: "Web Development",
     initial: "WD",
+    focus: "Learning",
     items: [
       "TypeScript, React, Next.js, and Tailwind CSS basics",
       "Mobile-first responsive UI implementation",
@@ -50,6 +55,7 @@ export const technicalSkills = [
   {
     title: "PC Hardware",
     initial: "HW",
+    focus: "Practical",
     items: [
       "Component selection, compatibility, and system-building knowledge",
       "Performance tuning, thermals, troubleshooting, and upgrades",
@@ -59,6 +65,7 @@ export const technicalSkills = [
   {
     title: "Research & Presentation",
     initial: "RP",
+    focus: "Developing",
     items: [
       "Organizing technical learning into clear summaries",
       "Preparing portfolio-ready explanations and project notes",
@@ -68,6 +75,7 @@ export const technicalSkills = [
   {
     title: "Documentation",
     initial: "DO",
+    focus: "Documenting",
     items: [
       "Project organization, version control habits, and changelog thinking",
       "Turning learning progress into visible public evidence",
@@ -79,21 +87,25 @@ export const technicalSkills = [
 export const educationEnglish = [
   {
     title: "High School",
+    label: "Education",
     detail:
       "High school student based in Istanbul, Türkiye, building a technical profile across AI, software, hardware, and international education."
   },
   {
     title: "English Development",
+    label: "English",
     detail:
       "Developing English for academic, technical, and international opportunities, with a focus on clear communication and presentation."
   },
   {
     title: "Portfolio-Based Learning",
+    label: "Learning",
     detail:
       "Using projects and documentation to make learning visible, organized, and useful for future applications."
   },
   {
     title: "International Direction",
+    label: "Direction",
     detail:
       "Preparing a stronger public profile for school opportunities, global education paths, and future collaborations."
   }
@@ -111,17 +123,20 @@ export const competitiveAchievements = [
   {
     category: "Valorant",
     result: "Immortal 2",
-    icon: "V"
+    icon: "V",
+    tone: "Rank"
   },
   {
     category: "CS2",
     result: "FACEIT Level 10",
-    icon: "C"
+    icon: "C",
+    tone: "Level"
   },
   {
     category: "Chess",
     result: "2000+ rating",
-    icon: "♔"
+    icon: "CH",
+    tone: "Rating"
   }
 ];
 

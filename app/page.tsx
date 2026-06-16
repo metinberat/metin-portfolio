@@ -96,7 +96,7 @@ function FeaturedProjects() {
             <ProjectPreview featured={project.featured} tag={project.tag} />
             <div className="flex min-w-0 flex-1 flex-col">
               <div className="flex min-w-0 flex-wrap items-center gap-2">
-                <span className="rounded-full bg-graphite-900/95 px-3 py-1 text-xs font-semibold text-white shadow-soft">
+                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-50 shadow-soft">
                   {project.status}
                 </span>
                 <span className="min-w-0 break-words text-xs font-semibold uppercase tracking-[0.14em] text-graphite-500">
@@ -109,6 +109,16 @@ function FeaturedProjects() {
               <p className="mt-3 min-w-0 flex-1 break-words text-sm leading-6 text-graphite-700">
                 {project.description}
               </p>
+              <div className="mt-5 flex min-w-0 flex-wrap gap-2">
+                {project.stack.map((item) => (
+                  <span
+                    className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-200 shadow-soft"
+                    key={item}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </TitaniumCard>
         ))}
@@ -126,24 +136,24 @@ function ProjectPreview({
 }) {
   return (
     <div
-      className={`mb-4 min-w-0 rounded-[1.35rem] border border-white/75 bg-[linear-gradient(135deg,#ffffff_0%,#f0f0ec_48%,#cfd1cb_100%)] p-3 shadow-soft sm:mb-5 sm:rounded-[1.5rem] sm:p-4 ${
-        featured ? "h-40 sm:h-64" : "h-28 sm:aspect-[4/3] sm:h-auto"
+      className={`mb-4 min-w-0 rounded-[1.35rem] border border-white/15 bg-[radial-gradient(circle_at_28%_8%,rgba(255,255,255,0.22),transparent_34%),linear-gradient(135deg,rgba(112,116,124,0.68),rgba(22,23,26,0.92)_58%,rgba(5,5,6,0.96))] p-3 shadow-soft sm:mb-5 sm:rounded-[1.5rem] sm:p-4 ${
+        featured ? "h-48 sm:h-72" : "h-32 sm:aspect-[4/3] sm:h-auto"
       }`}
     >
-      <div className="flex h-full min-w-0 flex-col justify-between rounded-[1rem] border border-graphite-900/10 bg-white/40 p-3 backdrop-blur sm:rounded-[1.1rem] sm:p-4">
-        <div className="flex items-center justify-between gap-3">
-          <span className="w-fit max-w-full rounded-full bg-graphite-900/95 px-3 py-1 text-xs font-semibold text-white shadow-soft">
+      <div className="relative flex h-full min-w-0 flex-col justify-between overflow-hidden rounded-[1rem] border border-white/15 bg-black/25 p-3 backdrop-blur sm:rounded-[1.1rem] sm:p-4">
+        <div className="absolute inset-0 fine-grid opacity-35" />
+        <div className="relative flex items-center justify-between gap-3">
+          <span className="w-fit max-w-full rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-50 shadow-soft">
             {tag}
           </span>
-          <div className="h-7 w-10 rounded-xl border border-white/70 bg-[linear-gradient(135deg,#ffffff_0%,#e7e8e3_48%,#aeb1aa_100%)] shadow-soft" />
         </div>
-        <div className="grid gap-2">
-          <div className="h-9 rounded-2xl bg-[linear-gradient(100deg,rgba(23,24,23,0.74),rgba(111,113,109,0.34)_48%,rgba(255,255,255,0.78))] sm:h-14" />
+        <div className="relative grid gap-2">
+          <div className="h-10 rounded-2xl border border-white/10 bg-[linear-gradient(100deg,rgba(244,244,246,0.86),rgba(132,136,146,0.44)_44%,rgba(5,5,6,0.68))] shadow-[0_0_34px_rgba(255,255,255,0.10)] sm:h-16" />
           {featured ? (
             <div className="grid grid-cols-3 gap-2">
-              <div className="h-8 rounded-xl bg-white/55" />
-              <div className="h-8 rounded-xl bg-white/45" />
-              <div className="h-8 rounded-xl bg-white/35" />
+              <div className="h-9 rounded-xl border border-white/12 bg-white/12" />
+              <div className="h-9 rounded-xl border border-white/10 bg-white/8" />
+              <div className="h-9 rounded-xl border border-white/8 bg-black/20" />
             </div>
           ) : null}
         </div>
@@ -166,8 +176,13 @@ function TechnicalSkills() {
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         {technicalSkills.map((group) => (
           <TitaniumCard className="p-5 sm:p-6" key={group.title}>
-            <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-graphite-900 text-sm font-bold text-white shadow-soft">
-              {group.initial}
+            <div className="mb-5 flex items-start justify-between gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-graphite-900 text-sm font-bold text-white shadow-soft">
+                {group.initial}
+              </div>
+              <span className="rounded-full border border-white/70 bg-white/55 px-3 py-1 text-xs font-semibold text-graphite-600 shadow-soft">
+                {group.focus}
+              </span>
             </div>
             <h3 className="text-lg font-semibold text-graphite-900">
               {group.title}
@@ -182,6 +197,11 @@ function TechnicalSkills() {
                 </li>
               ))}
             </ul>
+            <div className="mt-5 grid grid-cols-3 gap-2">
+              <div className="h-2 rounded-full bg-graphite-900/70" />
+              <div className="h-2 rounded-full bg-graphite-500/35" />
+              <div className="h-2 rounded-full bg-white/70" />
+            </div>
           </TitaniumCard>
         ))}
       </div>
@@ -203,9 +223,17 @@ function EducationEnglish() {
       <div className="grid gap-4 md:grid-cols-2">
         {educationEnglish.map((item) => (
           <TitaniumCard className="p-5 sm:p-6" key={item.title}>
-            <h3 className="text-xl font-semibold tracking-tight text-graphite-900">
-              {item.title}
-            </h3>
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-graphite-500">
+                  {item.label}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold tracking-tight text-graphite-900">
+                  {item.title}
+                </h3>
+              </div>
+              <div className="h-10 w-10 rounded-2xl border border-white/70 bg-[linear-gradient(135deg,#ffffff_0%,#e7e8ec_48%,#aeb2bb_100%)] shadow-soft" />
+            </div>
             <p className="mt-3 text-sm leading-6 text-graphite-700">
               {item.detail}
             </p>
@@ -230,9 +258,12 @@ function Goals() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         {goals.map((goal, index) => (
           <TitaniumCard className="p-5" key={goal}>
-            <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/65 text-sm font-semibold text-graphite-900 shadow-soft">
-              {String(index + 1).padStart(2, "0")}
-            </span>
+            <div className="flex items-center justify-between gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/65 text-sm font-semibold text-graphite-900 shadow-soft">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="h-px flex-1 bg-graphite-900/10" />
+            </div>
             <p className="mt-5 text-sm font-semibold leading-6 text-graphite-900">
               {goal}
             </p>
@@ -264,9 +295,14 @@ function CompetitiveAchievements() {
               {achievement.icon}
             </div>
             <div className="min-w-0">
-              <h3 className="text-lg font-semibold text-graphite-900">
-                {achievement.category}
-              </h3>
+              <div className="flex min-w-0 flex-wrap items-center gap-2">
+                <h3 className="text-lg font-semibold text-graphite-900">
+                  {achievement.category}
+                </h3>
+                <span className="rounded-full border border-white/70 bg-white/55 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-graphite-500">
+                  {achievement.tone}
+                </span>
+              </div>
               <p className="mt-1 min-w-0 break-words text-sm font-semibold uppercase tracking-[0.14em] text-graphite-500">
                 {achievement.result}
               </p>
@@ -290,15 +326,18 @@ function Timeline() {
         description="The timeline connects AI-assisted projects, web development, education preparation, and compact competitive discipline."
       />
       <TitaniumCard className="p-4 sm:p-8">
-        <div className="grid gap-5">
+        <div className="grid gap-4">
           {timeline.map((item) => (
             <div
               className="grid gap-4 rounded-[1.5rem] border border-white/50 bg-white/45 p-4 sm:grid-cols-[9rem_1fr]"
               key={item.period}
             >
-              <p className="text-sm font-semibold text-graphite-500">
-                {item.period}
-              </p>
+              <div className="flex items-center gap-3">
+                <span className="h-3 w-3 rounded-full bg-graphite-900/80 shadow-soft" />
+                <p className="text-sm font-semibold text-graphite-500">
+                  {item.period}
+                </p>
+              </div>
               <div>
                 <h3 className="font-semibold text-graphite-900">
                   {item.title}
@@ -358,26 +397,26 @@ function Hero() {
   return (
     <section className="mx-auto grid w-full max-w-6xl items-center gap-7 px-5 pb-10 pt-14 sm:px-6 sm:py-10 lg:min-h-screen lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
       <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-graphite-500 sm:text-sm sm:tracking-[0.26em]">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titanium-300 sm:text-sm sm:tracking-[0.26em]">
           Istanbul Student Portfolio
         </p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-graphite-900 sm:mt-5 sm:text-6xl lg:text-7xl">
+        <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-titanium-50 sm:mt-5 sm:text-6xl lg:text-7xl">
           Metin Berat Dönmez
         </h1>
-        <p className="mt-5 max-w-xl text-base leading-8 text-graphite-700 sm:mt-6 sm:text-lg">
+        <p className="mt-5 max-w-xl text-base leading-8 text-titanium-300 sm:mt-6 sm:text-lg">
           A project-first personal CV documenting Akashi AI, web development,
           hardware knowledge, English growth, and future international
           education goals.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
-            className="rounded-full bg-graphite-900 px-6 py-3 text-center text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5"
+            className="rounded-full bg-titanium-50 px-6 py-3 text-center text-sm font-semibold text-graphite-900 shadow-soft transition hover:-translate-y-0.5"
             href="#projects"
           >
             View Projects
           </a>
           <a
-            className="rounded-full border border-white/80 bg-white/60 px-6 py-3 text-center text-sm font-semibold text-graphite-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-white"
+            className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold text-titanium-50 shadow-soft transition hover:-translate-y-0.5 hover:bg-white/15"
             href="#contact"
           >
             Contact
@@ -397,10 +436,10 @@ function Hero() {
                 MBD
               </p>
             </div>
-            <div className="h-11 w-14 rounded-2xl border border-white/70 bg-[linear-gradient(135deg,#ffffff_0%,#e7e8e3_48%,#aeb1aa_100%)] shadow-soft sm:h-12 sm:w-16" />
+            <div className="h-11 w-14 rounded-2xl border border-white/70 bg-[linear-gradient(135deg,#ffffff_0%,#e7e8ec_48%,#aeb2bb_100%)] shadow-soft sm:h-12 sm:w-16" />
           </div>
           <div className="space-y-4 sm:space-y-5">
-            <div className="h-16 rounded-[1.35rem] bg-[linear-gradient(100deg,rgba(23,24,23,0.78),rgba(111,113,109,0.42)_43%,rgba(255,255,255,0.76))] shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] sm:h-20 sm:rounded-[1.5rem]" />
+            <div className="h-16 rounded-[1.35rem] bg-[linear-gradient(100deg,rgba(20,21,24,0.82),rgba(116,120,130,0.42)_43%,rgba(255,255,255,0.76))] shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] sm:h-20 sm:rounded-[1.5rem]" />
             <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {["AI", "Code", "Global"].map((item) => (
                 <div
