@@ -1,8 +1,9 @@
 import {
   competitiveAchievements,
   contactLinks,
-  education,
-  projects,
+  educationEnglish,
+  featuredProjects,
+  goals,
   technicalSkills,
   timeline
 } from "@/components/portfolio-data";
@@ -14,10 +15,11 @@ export default function Home() {
     <main className="overflow-hidden">
       <Hero />
       <About />
-      <Education />
-      <CompetitiveAchievements />
+      <FeaturedProjects />
       <TechnicalSkills />
-      <Projects />
+      <EducationEnglish />
+      <Goals />
+      <CompetitiveAchievements />
       <Timeline />
       <Contact />
     </main>
@@ -29,32 +31,30 @@ function About() {
     <section className="mx-auto grid w-full max-w-6xl gap-5 px-5 py-10 sm:px-6 sm:py-12 lg:px-8">
       <SectionHeader
         eyebrow="About Me"
-        title="A high school student in Istanbul focused on AI, technology, and international education."
-        description="Metin Berat Dönmez is building a focused technical profile across AI tools, software, PC hardware, competitive discipline, and future global study opportunities."
+        title="A high school student in Istanbul building a project-based technical profile."
+        description="Metin Berat Dönmez is focused on AI tools, web development, PC hardware, English development, and international education opportunities."
       />
       <TitaniumCard className="grid gap-5 p-5 sm:gap-7 sm:p-8 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-4 text-[0.96rem] leading-8 text-graphite-700 sm:text-base">
           <p>
-            I am a high school student based in Istanbul, Türkiye, with a
-            strong interest in how technology changes the way people learn,
-            build, and compete. My current focus is learning web development
-            through this portfolio while exploring practical AI tools, software
-            fundamentals, and PC hardware performance.
+            I am a high school student based in Istanbul, Türkiye. My current
+            focus is turning curiosity into visible work: AI-assisted projects,
+            web development practice, hardware documentation, and a clearer
+            public profile for future applications.
           </p>
           <p>
-            Competitive gaming and chess have shaped the way I approach
-            improvement: review carefully, stay calm under pressure, and keep
-            refining the system. I want this portfolio to document that same
-            discipline through projects, learning progress, achievements, and
-            future education applications.
+            I approach learning with the same discipline I use in competitive
+            environments: review carefully, improve systems, communicate
+            clearly, and keep building. This portfolio is designed to document
+            that progress through real projects and structured evidence.
           </p>
         </div>
         <div className="grid gap-3">
           {[
             ["Location", "Istanbul, Türkiye"],
-            ["Profile", "High school student"],
-            ["Competition", "Valorant Immortal 2, CS2 FACEIT Level 10"],
-            ["Current Work", "Learning web development through this portfolio"]
+            ["Current Focus", "AI tools, web development, and documentation"],
+            ["Portfolio Direction", "Projects, skills, English, and applications"],
+            ["Technical Interest", "Software, PC hardware, and practical workflows"]
           ].map(([label, value]) => (
             <div
               className="rounded-[1.35rem] border border-white/75 bg-white/50 p-4 shadow-soft backdrop-blur"
@@ -74,29 +74,42 @@ function About() {
   );
 }
 
-function Education() {
+function FeaturedProjects() {
   return (
     <section
-      className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
-      id="education"
+      className="mx-auto w-full max-w-6xl overflow-hidden px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
+      id="projects"
     >
       <SectionHeader
-        eyebrow="Education"
-        title="A student profile built around learning, documentation, and future applications."
-        description="This section gives the portfolio a clearer CV foundation before the technical and competitive evidence."
+        eyebrow="Featured Projects"
+        title="Project evidence first: AI, portfolio development, and hardware documentation."
+        description="The portfolio now prioritizes concrete project direction, with visual slots prepared for screenshots and future case studies."
       />
-      <div className="grid gap-4 lg:grid-cols-3">
-        {education.map((item) => (
-          <TitaniumCard className="p-5 sm:p-6" key={item.title}>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-graphite-500">
-              {item.label}
-            </p>
-            <h3 className="mt-3 text-xl font-semibold tracking-tight text-graphite-900">
-              {item.title}
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-graphite-700">
-              {item.detail}
-            </p>
+      <div className="grid min-w-0 gap-4 sm:gap-5 lg:grid-cols-3">
+        {featuredProjects.map((project) => (
+          <TitaniumCard
+            className={`flex w-full min-w-0 flex-col p-4 sm:p-5 ${
+              project.featured ? "lg:col-span-2" : ""
+            }`}
+            key={project.title}
+          >
+            <ProjectPreview featured={project.featured} tag={project.tag} />
+            <div className="flex min-w-0 flex-1 flex-col">
+              <div className="flex min-w-0 flex-wrap items-center gap-2">
+                <span className="rounded-full bg-graphite-900/95 px-3 py-1 text-xs font-semibold text-white shadow-soft">
+                  {project.status}
+                </span>
+                <span className="min-w-0 break-words text-xs font-semibold uppercase tracking-[0.14em] text-graphite-500">
+                  {project.type}
+                </span>
+              </div>
+              <h3 className="mt-4 min-w-0 break-words text-xl font-semibold leading-tight text-graphite-900 sm:text-2xl">
+                {project.title}
+              </h3>
+              <p className="mt-3 min-w-0 flex-1 break-words text-sm leading-6 text-graphite-700">
+                {project.description}
+              </p>
+            </div>
           </TitaniumCard>
         ))}
       </div>
@@ -104,42 +117,38 @@ function Education() {
   );
 }
 
-function CompetitiveAchievements() {
+function ProjectPreview({
+  featured,
+  tag
+}: {
+  featured: boolean;
+  tag: string;
+}) {
   return (
-    <section className="mx-auto grid w-full max-w-6xl gap-5 px-5 py-10 sm:px-6 sm:py-12 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-      <div>
-        <SectionHeader
-          eyebrow="Competitive Achievements"
-          title="Clear milestones from high-level competition."
-          description="A focused record of competitive results that show discipline, review habits, strategy, and composure under pressure."
-        />
-      </div>
-      <div className="grid gap-4">
-        {competitiveAchievements.map((achievement) => (
-          <TitaniumCard
-            className="grid gap-4 p-5 sm:grid-cols-[auto_1fr] sm:items-center sm:p-6"
-            key={achievement.category}
-          >
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/75 bg-white/60 text-xl font-semibold text-graphite-900 shadow-soft">
-              {achievement.icon}
+    <div
+      className={`mb-4 min-w-0 rounded-[1.35rem] border border-white/75 bg-[linear-gradient(135deg,#ffffff_0%,#f0f0ec_48%,#cfd1cb_100%)] p-3 shadow-soft sm:mb-5 sm:rounded-[1.5rem] sm:p-4 ${
+        featured ? "h-40 sm:h-64" : "h-28 sm:aspect-[4/3] sm:h-auto"
+      }`}
+    >
+      <div className="flex h-full min-w-0 flex-col justify-between rounded-[1rem] border border-graphite-900/10 bg-white/40 p-3 backdrop-blur sm:rounded-[1.1rem] sm:p-4">
+        <div className="flex items-center justify-between gap-3">
+          <span className="w-fit max-w-full rounded-full bg-graphite-900/95 px-3 py-1 text-xs font-semibold text-white shadow-soft">
+            {tag}
+          </span>
+          <div className="h-7 w-10 rounded-xl border border-white/70 bg-[linear-gradient(135deg,#ffffff_0%,#e7e8e3_48%,#aeb1aa_100%)] shadow-soft" />
+        </div>
+        <div className="grid gap-2">
+          <div className="h-9 rounded-2xl bg-[linear-gradient(100deg,rgba(23,24,23,0.74),rgba(111,113,109,0.34)_48%,rgba(255,255,255,0.78))] sm:h-14" />
+          {featured ? (
+            <div className="grid grid-cols-3 gap-2">
+              <div className="h-8 rounded-xl bg-white/55" />
+              <div className="h-8 rounded-xl bg-white/45" />
+              <div className="h-8 rounded-xl bg-white/35" />
             </div>
-            <div className="min-w-0">
-              <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">
-                <h3 className="text-lg font-semibold text-graphite-900">
-                  {achievement.category}
-                </h3>
-                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-graphite-500">
-                  {achievement.result}
-                </p>
-              </div>
-              <p className="mt-2 text-sm leading-6 text-graphite-700">
-                {achievement.detail}
-              </p>
-            </div>
-          </TitaniumCard>
-        ))}
+          ) : null}
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -151,10 +160,10 @@ function TechnicalSkills() {
     >
       <SectionHeader
         eyebrow="Technical Skills"
-        title="A practical skill map for AI, software, hardware, and presentation."
-        description="The skills are organized as CV categories, connecting technical curiosity with independent learning and project documentation."
+        title="A practical skill map for AI workflows, web basics, hardware, and documentation."
+        description="The skills are organized around what supports real projects: learning tools, implementation, optimization, presentation, and project organization."
       />
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         {technicalSkills.map((group) => (
           <TitaniumCard className="p-5 sm:p-6" key={group.title}>
             <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-graphite-900 text-sm font-bold text-white shadow-soft">
@@ -180,40 +189,88 @@ function TechnicalSkills() {
   );
 }
 
-function Projects() {
+function EducationEnglish() {
   return (
     <section
-      className="mx-auto w-full max-w-6xl overflow-hidden px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
-      id="projects"
+      className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
+      id="education"
     >
       <SectionHeader
-        eyebrow="Projects"
-        title="Practical projects for learning, documentation, and applications."
-        description="Each project has a clearer role in the portfolio: public CV, AI learning workflow, or technical hardware documentation."
+        eyebrow="Education & English"
+        title="Academic direction, English development, and portfolio-based learning."
+        description="This section gives the CV a stronger education foundation without making the page feel formal or heavy."
       />
-      <div className="grid min-w-0 gap-4 sm:gap-5 lg:grid-cols-3">
-        {projects.map((project) => (
-          <TitaniumCard
-            className="flex w-full min-w-0 flex-col p-4 sm:min-h-[22rem] sm:p-5"
-            key={project.title}
-          >
-            <div className="mb-4 h-28 min-w-0 rounded-[1.35rem] border border-white/75 bg-[linear-gradient(135deg,#ffffff_0%,#f0f0ec_48%,#cfd1cb_100%)] p-3 shadow-soft sm:mb-5 sm:aspect-[4/3] sm:h-auto sm:rounded-[1.5rem] sm:p-4">
-              <div className="flex h-full min-w-0 flex-col justify-between rounded-[1rem] border border-graphite-900/10 bg-white/40 p-3 backdrop-blur sm:rounded-[1.1rem] sm:p-4">
-                <span className="w-fit max-w-full rounded-full bg-graphite-900/95 px-3 py-1 text-xs font-semibold text-white shadow-soft">
-                  {project.tag}
-                </span>
-                <div className="h-9 rounded-2xl bg-[linear-gradient(100deg,rgba(23,24,23,0.74),rgba(111,113,109,0.34)_48%,rgba(255,255,255,0.78))] sm:h-16" />
-              </div>
-            </div>
-            <h3 className="min-w-0 break-words text-lg font-semibold leading-tight text-graphite-900 sm:text-xl">
-              {project.title}
+      <div className="grid gap-4 md:grid-cols-2">
+        {educationEnglish.map((item) => (
+          <TitaniumCard className="p-5 sm:p-6" key={item.title}>
+            <h3 className="text-xl font-semibold tracking-tight text-graphite-900">
+              {item.title}
             </h3>
-            <p className="mt-3 min-w-0 flex-1 overflow-hidden break-words text-sm leading-6 text-graphite-700">
-              {project.description}
+            <p className="mt-3 text-sm leading-6 text-graphite-700">
+              {item.detail}
             </p>
-            <p className="mt-4 min-w-0 break-words text-xs font-semibold uppercase tracking-[0.14em] text-graphite-500 sm:mt-5 sm:tracking-[0.16em]">
-              {project.status}
+          </TitaniumCard>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Goals() {
+  return (
+    <section
+      className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
+      id="goals"
+    >
+      <SectionHeader
+        eyebrow="Goals"
+        title="Clear next steps for stronger projects, communication, and applications."
+        description="These goals connect technical progress with long-term education and portfolio development."
+      />
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        {goals.map((goal, index) => (
+          <TitaniumCard className="p-5" key={goal}>
+            <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/65 text-sm font-semibold text-graphite-900 shadow-soft">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <p className="mt-5 text-sm font-semibold leading-6 text-graphite-900">
+              {goal}
             </p>
+          </TitaniumCard>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CompetitiveAchievements() {
+  return (
+    <section
+      className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
+      id="competitive"
+    >
+      <SectionHeader
+        eyebrow="Competitive Achievements"
+        title="Compact milestones from competitive gaming and chess."
+        description="Kept secondary in the page hierarchy, these achievements show discipline, review habits, and performance under pressure."
+      />
+      <div className="grid gap-4 md:grid-cols-3">
+        {competitiveAchievements.map((achievement) => (
+          <TitaniumCard
+            className="grid gap-4 p-5 sm:grid-cols-[auto_1fr] sm:items-center sm:p-6"
+            key={achievement.category}
+          >
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/75 bg-white/60 text-xl font-semibold text-graphite-900 shadow-soft">
+              {achievement.icon}
+            </div>
+            <div className="min-w-0">
+              <h3 className="text-lg font-semibold text-graphite-900">
+                {achievement.category}
+              </h3>
+              <p className="mt-1 min-w-0 break-words text-sm font-semibold uppercase tracking-[0.14em] text-graphite-500">
+                {achievement.result}
+              </p>
+            </div>
           </TitaniumCard>
         ))}
       </div>
@@ -229,8 +286,8 @@ function Timeline() {
     >
       <SectionHeader
         eyebrow="Timeline"
-        title="A clearer path from competition to technical portfolio building."
-        description="The timeline connects disciplined practice, AI and software learning, and future education preparation."
+        title="A project-first path from learning to public evidence."
+        description="The timeline connects AI-assisted projects, web development, education preparation, and compact competitive discipline."
       />
       <TitaniumCard className="p-4 sm:p-8">
         <div className="grid gap-5">
@@ -308,9 +365,9 @@ function Hero() {
           Metin Berat Dönmez
         </h1>
         <p className="mt-5 max-w-xl text-base leading-8 text-graphite-700 sm:mt-6 sm:text-lg">
-          A structured personal CV documenting AI learning, web development,
-          PC hardware knowledge, and competitive discipline for future
-          international education opportunities.
+          A project-first personal CV documenting Akashi AI, web development,
+          hardware knowledge, English growth, and future international
+          education goals.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
@@ -359,11 +416,11 @@ function Hero() {
           </div>
           <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
             <p className="max-w-xs text-sm leading-6 text-graphite-700">
-              Premium student portfolio for achievements, skills, projects,
-              learning progress, and education goals.
+              Premium student portfolio for projects, skills, goals,
+              education, and selected achievements.
             </p>
             <p className="text-right text-sm font-semibold text-graphite-900">
-              V2
+              V2.2
             </p>
           </div>
         </div>

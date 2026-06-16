@@ -1,65 +1,50 @@
-export const education = [
+export const featuredProjects = [
   {
-    label: "Profile",
-    title: "High School Student",
-    detail:
-      "Based in Istanbul, Türkiye, with a growing technical profile focused on AI tools, software, PC hardware, and international education."
+    title: "Akashi AI",
+    status: "In progress",
+    type: "AI assistant / study workflow project",
+    tag: "AI",
+    featured: true,
+    description:
+      "A personal AI assistant concept focused on productivity, study support, structured notes, and practical AI workflows."
   },
   {
-    label: "Current Focus",
-    title: "Portfolio-Based Learning",
-    detail:
-      "Using this website as a practical project to learn modern web development, document progress, and prepare stronger application materials."
+    title: "Personal Portfolio Website",
+    status: "Live",
+    type: "Next.js / Tailwind / Vercel",
+    tag: "Web",
+    featured: false,
+    description:
+      "A premium personal CV and portfolio website built to document projects, skills, achievements, and future applications."
   },
   {
-    label: "Direction",
-    title: "International Education",
-    detail:
-      "Building a clear record of projects, achievements, research habits, and technical interests for future academic opportunities."
-  }
-];
-
-export const competitiveAchievements = [
-  {
-    category: "Valorant",
-    result: "Immortal 2",
-    icon: "V",
-    detail:
-      "Reached Immortal 2 through structured practice, fast decision-making, and team-oriented competitive play."
-  },
-  {
-    category: "CS2",
-    result: "FACEIT Level 10",
-    icon: "C",
-    detail:
-      "Achieved FACEIT Level 10, reflecting consistency, review habits, communication, and performance under pressure."
-  },
-  {
-    category: "Chess",
-    result: "2000+ rating",
-    icon: "♔",
-    detail:
-      "Developed strategic thinking, calculation discipline, and patience through chess experience around the 2000+ rating level."
+    title: "Hardware Build Log",
+    status: "Planned documentation",
+    type: "PC hardware / optimization",
+    tag: "Hardware",
+    featured: false,
+    description:
+      "A technical log for PC components, upgrade decisions, benchmark observations, troubleshooting, and performance optimization."
   }
 ];
 
 export const technicalSkills = [
   {
-    title: "AI Tools",
+    title: "AI Tools & Prompting",
     initial: "AI",
     items: [
-      "Prompting and AI-assisted research workflows",
-      "Summarization, study planning, and structured note systems",
-      "Interest in machine learning concepts and responsible use"
+      "Prompting for research, study planning, and structured outputs",
+      "AI-assisted note organization and productivity workflows",
+      "Responsible use of AI tools for learning and project support"
     ]
   },
   {
-    title: "Software & Web",
-    initial: "SW",
+    title: "Web Development",
+    initial: "WD",
     items: [
-      "Learning TypeScript, React, Next.js, and Tailwind CSS",
-      "Building responsive interfaces through this portfolio",
-      "Practicing version control and clean project documentation"
+      "TypeScript, React, Next.js, and Tailwind CSS basics",
+      "Mobile-first responsive UI implementation",
+      "Deploying and maintaining a static site on Vercel"
     ]
   },
   {
@@ -67,42 +52,76 @@ export const technicalSkills = [
     initial: "HW",
     items: [
       "Component selection, compatibility, and system-building knowledge",
-      "Performance tuning, thermals, and troubleshooting",
-      "Benchmarking habits for stable daily and competitive setups"
+      "Performance tuning, thermals, troubleshooting, and upgrades",
+      "Benchmark observations for stable daily and competitive setups"
     ]
   },
   {
     title: "Research & Presentation",
     initial: "RP",
     items: [
-      "Organizing technical notes into clear portfolio evidence",
-      "Preparing concise summaries for school and application contexts",
-      "Connecting learning milestones with public project writeups"
+      "Organizing technical learning into clear summaries",
+      "Preparing portfolio-ready explanations and project notes",
+      "Connecting research, documentation, and presentation quality"
+    ]
+  },
+  {
+    title: "Documentation",
+    initial: "DO",
+    items: [
+      "Project organization, version control habits, and changelog thinking",
+      "Turning learning progress into visible public evidence",
+      "Writing concise descriptions for applications and portfolio reviews"
     ]
   }
 ];
 
-export const projects = [
+export const educationEnglish = [
   {
-    title: "Personal Portfolio Website",
-    tag: "Web",
-    status: "Live V2 structure",
-    description:
-      "A responsive Next.js portfolio designed as a polished student CV for projects, competitive achievements, technical interests, and future education applications."
+    title: "High School",
+    detail:
+      "High school student based in Istanbul, Türkiye, building a technical profile across AI, software, hardware, and international education."
   },
   {
-    title: "AI Study Companion",
-    tag: "AI",
-    status: "Research phase",
-    description:
-      "A study workflow concept for organizing notes, summarizing difficult topics, and turning learning material into review questions."
+    title: "English Development",
+    detail:
+      "Developing English for academic, technical, and international opportunities, with a focus on clear communication and presentation."
   },
   {
-    title: "Hardware Build Log",
-    tag: "Hardware",
-    status: "Planned documentation",
-    description:
-      "A technical log for PC components, upgrade decisions, benchmark observations, and performance optimization lessons."
+    title: "Portfolio-Based Learning",
+    detail:
+      "Using projects and documentation to make learning visible, organized, and useful for future applications."
+  },
+  {
+    title: "International Direction",
+    detail:
+      "Preparing a stronger public profile for school opportunities, global education paths, and future collaborations."
+  }
+];
+
+export const goals = [
+  "Build stronger AI-assisted projects",
+  "Improve web development and product thinking",
+  "Develop English toward advanced academic and professional communication",
+  "Prepare a stronger public profile for international education opportunities",
+  "Document technical progress through real projects"
+];
+
+export const competitiveAchievements = [
+  {
+    category: "Valorant",
+    result: "Immortal 2",
+    icon: "V"
+  },
+  {
+    category: "CS2",
+    result: "FACEIT Level 10",
+    icon: "C"
+  },
+  {
+    category: "Chess",
+    result: "2000+ rating",
+    icon: "♔"
   }
 ];
 
@@ -111,25 +130,25 @@ export const timeline = [
     period: "Foundation",
     title: "Competitive discipline",
     description:
-      "Built strong improvement habits through chess, Valorant, and CS2: review, patience, communication, and calm decision-making."
+      "Built improvement habits through chess, Valorant, and CS2: review, patience, communication, and calm decision-making."
   },
   {
     period: "Current",
     title: "AI and web development",
     description:
-      "Exploring AI tools and modern web development while turning this portfolio into a real public CV project."
+      "Learning AI-assisted workflows and modern web development while using this portfolio as a real public project."
   },
   {
-    period: "V2",
-    title: "Structured portfolio",
+    period: "V2.2",
+    title: "Project-first portfolio structure",
     description:
-      "Organizing education, achievements, skills, projects, and timeline into a clearer premium CV format."
+      "Reorganized the site around featured projects, technical skills, education, goals, and compact competitive achievements."
   },
   {
     period: "Next",
-    title: "Project evidence and applications",
+    title: "Evidence and applications",
     description:
-      "Preparing stronger project writeups, technical notes, and academic materials for school and international education opportunities."
+      "Add screenshots, deeper project writeups, technical notes, and stronger materials for international education opportunities."
   }
 ];
 
