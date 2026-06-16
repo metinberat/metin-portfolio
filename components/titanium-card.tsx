@@ -9,7 +9,7 @@ export function TitaniumCard({
 }: TitaniumCardProps) {
   return (
     <div
-      className={`titanium-surface rounded-[2rem] ${className}`}
+      className={`titanium-surface min-w-0 max-w-full overflow-hidden rounded-[2rem] ${className}`}
       {...props}
     >
       {children}

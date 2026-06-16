@@ -93,7 +93,7 @@ export default function Home() {
       </section>
 
       <section
-        className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
+        className="mx-auto w-full max-w-6xl overflow-hidden px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
         id="projects"
       >
         <SectionHeader
@@ -101,27 +101,27 @@ export default function Home() {
           title="Practical projects for learning, documentation, and applications."
           description="This section tracks real work and structured technical ideas that support a stronger public student profile."
         />
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid min-w-0 gap-4 sm:gap-5 lg:grid-cols-3">
           {projects.map((project) => (
             <TitaniumCard
-              className="flex min-h-[20rem] flex-col p-4 sm:min-h-[22rem] sm:p-5"
+              className="flex w-full min-w-0 flex-col p-4 sm:min-h-[22rem] sm:p-5"
               key={project.title}
             >
-              <div className="mb-5 aspect-[4/3] rounded-[1.5rem] border border-white/75 bg-[linear-gradient(135deg,#ffffff_0%,#f0f0ec_48%,#cfd1cb_100%)] p-4 shadow-soft">
-                <div className="flex h-full flex-col justify-between rounded-[1.1rem] border border-graphite-900/10 bg-white/40 p-4 backdrop-blur">
-                  <span className="w-fit rounded-full bg-graphite-900/95 px-3 py-1 text-xs font-semibold text-white shadow-soft">
+              <div className="mb-4 h-28 min-w-0 rounded-[1.35rem] border border-white/75 bg-[linear-gradient(135deg,#ffffff_0%,#f0f0ec_48%,#cfd1cb_100%)] p-3 shadow-soft sm:mb-5 sm:aspect-[4/3] sm:h-auto sm:rounded-[1.5rem] sm:p-4">
+                <div className="flex h-full min-w-0 flex-col justify-between rounded-[1rem] border border-graphite-900/10 bg-white/40 p-3 backdrop-blur sm:rounded-[1.1rem] sm:p-4">
+                  <span className="w-fit max-w-full rounded-full bg-graphite-900/95 px-3 py-1 text-xs font-semibold text-white shadow-soft">
                     {project.tag}
                   </span>
-                  <div className="h-16 rounded-2xl bg-[linear-gradient(100deg,rgba(23,24,23,0.74),rgba(111,113,109,0.34)_48%,rgba(255,255,255,0.78))]" />
+                  <div className="h-9 rounded-2xl bg-[linear-gradient(100deg,rgba(23,24,23,0.74),rgba(111,113,109,0.34)_48%,rgba(255,255,255,0.78))] sm:h-16" />
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-graphite-900">
+              <h3 className="min-w-0 break-words text-lg font-semibold leading-tight text-graphite-900 sm:text-xl">
                 {project.title}
               </h3>
-              <p className="mt-3 flex-1 text-sm leading-6 text-graphite-700">
+              <p className="mt-3 min-w-0 flex-1 overflow-hidden break-words text-sm leading-6 text-graphite-700">
                 {project.description}
               </p>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-graphite-500">
+              <p className="mt-4 min-w-0 break-words text-xs font-semibold uppercase tracking-[0.14em] text-graphite-500 sm:mt-5 sm:tracking-[0.16em]">
                 {project.status}
               </p>
             </TitaniumCard>
