@@ -1,38 +1,83 @@
-export const skillGroups = [
+export const education = [
   {
-    title: "AI",
+    label: "Profile",
+    title: "High School Student",
+    detail:
+      "Based in Istanbul, Türkiye, with a growing technical profile focused on AI tools, software, PC hardware, and international education."
+  },
+  {
+    label: "Current Focus",
+    title: "Portfolio-Based Learning",
+    detail:
+      "Using this website as a practical project to learn modern web development, document progress, and prepare stronger application materials."
+  },
+  {
+    label: "Direction",
+    title: "International Education",
+    detail:
+      "Building a clear record of projects, achievements, research habits, and technical interests for future academic opportunities."
+  }
+];
+
+export const competitiveAchievements = [
+  {
+    category: "Valorant",
+    result: "Immortal 2",
+    icon: "V",
+    detail:
+      "Reached Immortal 2 through structured practice, fast decision-making, and team-oriented competitive play."
+  },
+  {
+    category: "CS2",
+    result: "FACEIT Level 10",
+    icon: "C",
+    detail:
+      "Achieved FACEIT Level 10, reflecting consistency, review habits, communication, and performance under pressure."
+  },
+  {
+    category: "Chess",
+    result: "2000+ rating",
+    icon: "♔",
+    detail:
+      "Developed strategic thinking, calculation discipline, and patience through chess experience around the 2000+ rating level."
+  }
+];
+
+export const technicalSkills = [
+  {
+    title: "AI Tools",
     initial: "AI",
     items: [
-      "Practical AI tool workflows for research and study",
-      "Prompting, summarization, and structured learning systems",
-      "Curiosity for machine learning concepts and responsible use"
+      "Prompting and AI-assisted research workflows",
+      "Summarization, study planning, and structured note systems",
+      "Interest in machine learning concepts and responsible use"
     ]
   },
   {
-    title: "Software",
+    title: "Software & Web",
     initial: "SW",
     items: [
       "Learning TypeScript, React, Next.js, and Tailwind CSS",
-      "Building clean, responsive interfaces through this portfolio",
-      "Developing version control and project documentation habits"
+      "Building responsive interfaces through this portfolio",
+      "Practicing version control and clean project documentation"
     ]
   },
   {
-    title: "Hardware",
+    title: "PC Hardware",
     initial: "HW",
     items: [
-      "PC component selection and system-building knowledge",
+      "Component selection, compatibility, and system-building knowledge",
       "Performance tuning, thermals, and troubleshooting",
-      "Interest in benchmarks, upgrades, and stable daily setups"
+      "Benchmarking habits for stable daily and competitive setups"
     ]
   },
   {
-    title: "Competition",
-    initial: "CG",
+    title: "Research & Presentation",
+    initial: "RP",
     items: [
-      "CS2 FACEIT Level 10 and Valorant Immortal 2 experience",
-      "Chess experience around 2000+ rating",
-      "Review discipline, focus under pressure, and team communication"
+      "Organizing technical notes into clear portfolio evidence",
+      "Preparing concise summaries for school and application contexts",
+      "Connecting learning milestones with public project writeups"
     ]
   }
 ];
@@ -41,77 +86,50 @@ export const projects = [
   {
     title: "Personal Portfolio Website",
     tag: "Web",
-    status: "Version 1 live",
+    status: "Live V2 structure",
     description:
-      "A fast, responsive Next.js portfolio built to present Metin's CV, projects, achievements, and international education path in a polished public format."
+      "A responsive Next.js portfolio designed as a polished student CV for projects, competitive achievements, technical interests, and future education applications."
   },
   {
     title: "AI Study Companion",
     tag: "AI",
     status: "Research phase",
     description:
-      "A study-focused AI workflow for organizing notes, summarizing difficult topics, and turning learning material into review questions."
+      "A study workflow concept for organizing notes, summarizing difficult topics, and turning learning material into review questions."
   },
   {
     title: "Hardware Build Log",
     tag: "Hardware",
-    status: "In planning",
+    status: "Planned documentation",
     description:
-      "A technical log for documenting PC components, upgrade decisions, benchmark observations, and performance optimization lessons."
-  }
-];
-
-export const achievements = [
-  {
-    year: "CS2",
-    title: "FACEIT Level 10",
-    description:
-      "Reached a high competitive level in CS2, reflecting consistency, review habits, communication, and performance under pressure."
-  },
-  {
-    year: "VAL",
-    title: "Valorant Immortal 2",
-    description:
-      "Achieved Immortal 2 in Valorant through structured practice, fast decision-making, and team-oriented competitive play."
-  },
-  {
-    year: "Chess",
-    title: "2000+ Rating Experience",
-    description:
-      "Developed strategic thinking, calculation discipline, and patience through chess experience around the 2000+ rating level."
-  },
-  {
-    year: "2026",
-    title: "Portfolio Version 1",
-    description:
-      "Built and launched a personal portfolio to document learning, technical projects, achievements, and future applications."
+      "A technical log for PC components, upgrade decisions, benchmark observations, and performance optimization lessons."
   }
 ];
 
 export const timeline = [
   {
-    period: "Early focus",
+    period: "Foundation",
     title: "Competitive discipline",
     description:
-      "Built strong habits through chess and high-level competitive games, learning review discipline, patience, and calm decision-making."
+      "Built strong improvement habits through chess, Valorant, and CS2: review, patience, communication, and calm decision-making."
   },
   {
     period: "Current",
-    title: "AI and software learning",
+    title: "AI and web development",
     description:
-      "Exploring AI tools, web development, and technical documentation while building this portfolio as a real public project."
+      "Exploring AI tools and modern web development while turning this portfolio into a real public CV project."
   },
   {
-    period: "2026",
-    title: "Portfolio and project evidence",
+    period: "V2",
+    title: "Structured portfolio",
     description:
-      "Using the portfolio to collect project writeups, hardware notes, learning milestones, and achievements in one organized place."
+      "Organizing education, achievements, skills, projects, and timeline into a clearer premium CV format."
   },
   {
-    period: "Future",
-    title: "International education goals",
+    period: "Next",
+    title: "Project evidence and applications",
     description:
-      "Preparing a stronger academic and technical profile for school opportunities, international education, and future collaborations."
+      "Preparing stronger project writeups, technical notes, and academic materials for school and international education opportunities."
   }
 ];
 
