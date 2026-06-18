@@ -5,6 +5,10 @@ export const featuredProjects = [
     type: "AI assistant / study workflow project",
     tag: "AI",
     featured: true,
+    image: "/evidence/akashi-ai-interface.png",
+    imageAlt:
+      "Akashi AI desktop interface with system monitor, activity log, file upload, and command input panels",
+    imagePosition: "center center",
     stack: ["AI Workflow", "Study Support", "Notes", "Productivity"],
     description:
       "A personal AI assistant concept focused on productivity, study support, structured notes, and practical AI workflows."
@@ -15,6 +19,9 @@ export const featuredProjects = [
     type: "Next.js / Tailwind / Vercel",
     tag: "Web",
     featured: false,
+    image: null,
+    imageAlt: "",
+    imagePosition: "center",
     stack: ["Next.js", "Tailwind", "Vercel"],
     description:
       "A premium personal CV and portfolio website built to document projects, skills, achievements, and future applications."
@@ -25,6 +32,9 @@ export const featuredProjects = [
     type: "PC hardware / optimization",
     tag: "Hardware",
     featured: false,
+    image: null,
+    imageAlt: "",
+    imagePosition: "center",
     stack: ["Hardware", "Benchmarks", "Optimization"],
     description:
       "A technical log for PC components, upgrade decisions, benchmark observations, troubleshooting, and performance optimization."
@@ -112,31 +122,68 @@ export const educationEnglish = [
 ];
 
 export const goals = [
-  "Build stronger AI-assisted projects",
-  "Improve web development and product thinking",
-  "Develop English toward advanced academic and professional communication",
-  "Prepare a stronger public profile for international education opportunities",
-  "Document technical progress through real projects"
+  {
+    title: "AI Projects",
+    detail:
+      "Build stronger AI-assisted projects that turn practical workflows, study support, and structured ideas into usable experiences."
+  },
+  {
+    title: "Web Development",
+    detail:
+      "Improve implementation skills, interface judgment, and product thinking through focused web projects."
+  },
+  {
+    title: "English & Communication",
+    detail:
+      "Develop English toward advanced academic and professional communication for technical and international contexts."
+  },
+  {
+    title: "International Education",
+    detail:
+      "Prepare stronger project evidence, academic materials, and communication for future international education opportunities."
+  },
+  {
+    title: "Public Portfolio",
+    detail:
+      "Document technical progress through real projects, clear case studies, and an organized public profile."
+  }
 ];
 
 export const competitiveAchievements = [
   {
     category: "Valorant",
-    result: "Immortal 2",
+    result: "Immortal 3",
+    detail: "Peak 268 RR",
     icon: "V",
-    tone: "Rank"
+    tone: "Rank",
+    image: "/evidence/valorant-proof.png",
+    imageAlt:
+      "Tracker.gg Valorant profile showing Immortal 3 and a peak rating of 268 RR",
+    imagePosition: "center 76%",
+    badges: ["Proof", "Tracker.gg"]
   },
   {
     category: "CS2",
-    result: "FACEIT Level 10",
+    result: "Historical peak: FACEIT Level 10",
+    detail: "Evidence pending",
     icon: "C",
-    tone: "Level"
+    tone: "Level",
+    image: null,
+    imageAlt: "",
+    imagePosition: "center",
+    badges: ["Historical", "Evidence pending"]
   },
   {
-    category: "Chess",
-    result: "2000+ rating",
+    category: "Chess.com",
+    result: "Rapid 2053",
+    detail: "Puzzle 1248",
     icon: "CH",
-    tone: "Rating"
+    tone: "Rating",
+    image: "/evidence/chess-proof.png",
+    imageAlt:
+      "Chess.com profile showing a rapid rating of 2053 and puzzle rating of 1248",
+    imagePosition: "center 28%",
+    badges: ["Proof", "Chess.com"]
   }
 ];
 

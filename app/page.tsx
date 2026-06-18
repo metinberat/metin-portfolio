@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   competitiveAchievements,
   contactLinks,
@@ -15,10 +16,10 @@ export default function Home() {
     <main className="overflow-hidden">
       <Hero />
       <About />
+      <DirectionGoals />
       <FeaturedProjects />
       <TechnicalSkills />
       <EducationEnglish />
-      <Goals />
       <CompetitiveAchievements />
       <Timeline />
       <Contact />
@@ -32,40 +33,43 @@ function About() {
       <SectionHeader
         eyebrow="About Me"
         title="A high school student in Istanbul building a project-based technical profile."
-        description="Metin Berat Dönmez is focused on AI tools, web development, PC hardware, English development, and international education opportunities."
+        description="Metin Berat Dönmez is focused on AI tools, web development, PC hardware, and building a stronger profile for international education opportunities."
       />
       <TitaniumCard className="grid gap-5 p-5 sm:gap-7 sm:p-8 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-4 text-[0.96rem] leading-8 text-graphite-700 sm:text-base">
           <p>
-            I am a high school student based in Istanbul, Türkiye. My current
-            focus is turning curiosity into visible work: AI-assisted projects,
-            web development practice, hardware documentation, and a clearer
-            public profile for future applications.
+            I am a high school student based in Istanbul, Türkiye, focused on
+            AI tools, web development, PC hardware, and international
+            education. I learn best by turning ideas into projects, then
+            documenting the decisions, progress, and results.
           </p>
           <p>
-            I approach learning with the same discipline I use in competitive
-            environments: review carefully, improve systems, communicate
-            clearly, and keep building. This portfolio is designed to document
-            that progress through real projects and structured evidence.
+            Competitive gaming and chess shaped my discipline, review habits,
+            strategic thinking, and calm decision-making. This portfolio brings
+            those habits into one public record of my projects, learning
+            progress, achievements, and future applications.
           </p>
         </div>
         <div className="grid gap-3">
           {[
             ["Location", "Istanbul, Türkiye"],
-            ["Current Focus", "AI tools, web development, and documentation"],
-            ["Portfolio Direction", "Projects, skills, English, and applications"],
-            ["Technical Interest", "Software, PC hardware, and practical workflows"]
+            ["Current Focus", "AI, Web, Hardware"],
+            ["Profile", "High school student"],
+            ["Working Style", "Disciplined, analytical, project-based"]
           ].map(([label, value]) => (
             <div
-              className="rounded-[1.35rem] border border-white/75 bg-white/50 p-4 shadow-soft backdrop-blur"
+              className="flex min-w-0 items-center justify-between gap-4 rounded-[1.35rem] border border-white/75 bg-white/50 p-4 shadow-soft backdrop-blur"
               key={label}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-graphite-500">
-                {label}
-              </p>
-              <p className="mt-1 text-sm font-semibold text-graphite-900">
-                {value}
-              </p>
+              <div className="min-w-0">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-graphite-500">
+                  {label}
+                </p>
+                <p className="mt-1 min-w-0 break-words text-sm font-semibold text-graphite-900">
+                  {value}
+                </p>
+              </div>
+              <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-white/60 shadow-[0_0_18px_rgba(255,255,255,0.22)]" />
             </div>
           ))}
         </div>
@@ -93,7 +97,13 @@ function FeaturedProjects() {
             }`}
             key={project.title}
           >
-            <ProjectPreview featured={project.featured} tag={project.tag} />
+            <ProjectPreview
+              featured={project.featured}
+              image={project.image}
+              imageAlt={project.imageAlt}
+              imagePosition={project.imagePosition}
+              tag={project.tag}
+            />
             <div className="flex min-w-0 flex-1 flex-col">
               <div className="flex min-w-0 flex-wrap items-center gap-2">
                 <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-50 shadow-soft">
@@ -129,9 +139,15 @@ function FeaturedProjects() {
 
 function ProjectPreview({
   featured,
+  image,
+  imageAlt,
+  imagePosition,
   tag
 }: {
   featured: boolean;
+  image: string | null;
+  imageAlt: string;
+  imagePosition: string;
   tag: string;
 }) {
   return (
@@ -141,22 +157,43 @@ function ProjectPreview({
       }`}
     >
       <div className="relative flex h-full min-w-0 flex-col justify-between overflow-hidden rounded-[1rem] border border-white/15 bg-black/25 p-3 backdrop-blur sm:rounded-[1.1rem] sm:p-4">
-        <div className="absolute inset-0 fine-grid opacity-35" />
+        {image ? (
+          <>
+            <Image
+              alt={imageAlt}
+              className="object-cover"
+              fill
+              sizes="(min-width: 1024px) 66vw, 100vw"
+              src={image}
+              style={{ objectPosition: imagePosition }}
+              unoptimized
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/25" />
+          </>
+        ) : (
+          <div className="absolute inset-0 fine-grid opacity-35" />
+        )}
         <div className="relative flex items-center justify-between gap-3">
           <span className="w-fit max-w-full rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-50 shadow-soft">
             {tag}
           </span>
         </div>
-        <div className="relative grid gap-2">
-          <div className="h-10 rounded-2xl border border-white/10 bg-[linear-gradient(100deg,rgba(244,244,246,0.86),rgba(132,136,146,0.44)_44%,rgba(5,5,6,0.68))] shadow-[0_0_34px_rgba(255,255,255,0.10)] sm:h-16" />
-          {featured ? (
+        {!image ? (
+          <div className="relative grid gap-2">
+            <div className="h-10 rounded-2xl border border-white/10 bg-[linear-gradient(100deg,rgba(244,244,246,0.86),rgba(132,136,146,0.44)_44%,rgba(5,5,6,0.68))] shadow-[0_0_34px_rgba(255,255,255,0.10)] sm:h-16" />
+            {featured ? (
             <div className="grid grid-cols-3 gap-2">
               <div className="h-9 rounded-xl border border-white/12 bg-white/12" />
               <div className="h-9 rounded-xl border border-white/10 bg-white/8" />
               <div className="h-9 rounded-xl border border-white/8 bg-black/20" />
             </div>
-          ) : null}
-        </div>
+            ) : null}
+          </div>
+        ) : (
+          <span className="relative w-fit rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-titanium-200 backdrop-blur">
+            Interface preview
+          </span>
+        )}
       </div>
     </div>
   );
@@ -244,29 +281,38 @@ function EducationEnglish() {
   );
 }
 
-function Goals() {
+function DirectionGoals() {
   return (
     <section
       className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
       id="goals"
     >
       <SectionHeader
-        eyebrow="Goals"
-        title="Clear next steps for stronger projects, communication, and applications."
-        description="These goals connect technical progress with long-term education and portfolio development."
+        eyebrow="Direction & Goals"
+        title="A clear direction for projects, communication, and international opportunities."
+        description="Five priorities connect current learning with stronger technical work, communication, and future international applications."
       />
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {goals.map((goal, index) => (
-          <TitaniumCard className="p-5" key={goal}>
+          <TitaniumCard
+            className="flex min-h-[13rem] flex-col p-5 sm:p-6"
+            key={goal.title}
+          >
             <div className="flex items-center justify-between gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/65 text-sm font-semibold text-graphite-900 shadow-soft">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <div className="h-px flex-1 bg-graphite-900/10" />
+              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-graphite-500">
+                Direction
+              </span>
             </div>
-            <p className="mt-5 text-sm font-semibold leading-6 text-graphite-900">
-              {goal}
+            <h3 className="mt-6 text-xl font-semibold tracking-tight text-graphite-900">
+              {goal.title}
+            </h3>
+            <p className="mt-3 flex-1 text-sm leading-6 text-graphite-700">
+              {goal.detail}
             </p>
+            <div className="mt-5 h-px bg-gradient-to-r from-white/25 via-white/10 to-transparent" />
           </TitaniumCard>
         ))}
       </div>
@@ -288,24 +334,57 @@ function CompetitiveAchievements() {
       <div className="grid gap-4 md:grid-cols-3">
         {competitiveAchievements.map((achievement) => (
           <TitaniumCard
-            className="grid gap-4 p-5 sm:grid-cols-[auto_1fr] sm:items-center sm:p-6"
+            className="flex min-w-0 flex-col p-4 sm:p-5"
             key={achievement.category}
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/75 bg-white/60 text-xl font-semibold text-graphite-900 shadow-soft">
-              {achievement.icon}
-            </div>
-            <div className="min-w-0">
+            {achievement.image ? (
+              <div className="relative mb-4 h-32 min-w-0 overflow-hidden rounded-[1.2rem] border border-white/15 bg-black/30 shadow-soft sm:h-36">
+                <Image
+                  alt={achievement.imageAlt}
+                  className="object-cover"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  src={achievement.image}
+                  style={{ objectPosition: achievement.imagePosition }}
+                  unoptimized
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-white/5" />
+              </div>
+            ) : (
+              <div className="mb-4 flex h-20 items-center justify-between rounded-[1.2rem] border border-white/15 bg-white/[0.055] px-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-lg font-semibold text-graphite-900 shadow-soft">
+                  {achievement.icon}
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-graphite-500">
+                  Text record
+                </span>
+              </div>
+            )}
+            <div className="flex min-w-0 flex-1 flex-col">
               <div className="flex min-w-0 flex-wrap items-center gap-2">
                 <h3 className="text-lg font-semibold text-graphite-900">
                   {achievement.category}
                 </h3>
-                <span className="rounded-full border border-white/70 bg-white/55 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-graphite-500">
+                <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-graphite-500">
                   {achievement.tone}
                 </span>
               </div>
-              <p className="mt-1 min-w-0 break-words text-sm font-semibold uppercase tracking-[0.14em] text-graphite-500">
+              <p className="mt-2 min-w-0 break-words text-sm font-semibold text-graphite-900">
                 {achievement.result}
               </p>
+              <p className="mt-1 min-w-0 break-words text-sm text-graphite-700">
+                {achievement.detail}
+              </p>
+              <div className="mt-4 flex min-w-0 flex-wrap gap-2">
+                {achievement.badges.map((badge) => (
+                  <span
+                    className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-graphite-500"
+                    key={badge}
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
             </div>
           </TitaniumCard>
         ))}
