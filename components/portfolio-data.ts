@@ -123,29 +123,34 @@ export const educationEnglish = [
 
 export const goals = [
   {
-    title: "AI Projects",
+    title: "AI & Akashi AI",
     detail:
-      "Build stronger AI-assisted projects that turn practical workflows, study support, and structured ideas into usable experiences."
+      "Develop Akashi AI and future assistant-style systems as practical projects, not just ideas. I want to explore how AI can help with studying, productivity, memory, planning, and personal workflows."
   },
   {
-    title: "Web Development",
+    title: "Web & Product Building",
     detail:
-      "Improve implementation skills, interface judgment, and product thinking through focused web projects."
+      "Improve my ability to turn ideas into clean digital products using modern web tools, interface design, deployment workflows, and structured development habits."
+  },
+  {
+    title: "PC Hardware & Optimization",
+    detail:
+      "Continue learning how systems perform, how parts work together, and how optimization affects real-world experience in gaming, productivity, and creative work."
   },
   {
     title: "English & Communication",
     detail:
-      "Develop English toward advanced academic and professional communication for technical and international contexts."
+      "Push my English toward advanced academic and professional communication so I can explain projects, apply internationally, and connect with global opportunities."
   },
   {
     title: "International Education",
     detail:
-      "Prepare stronger project evidence, academic materials, and communication for future international education opportunities."
+      "Build a stronger profile for future international education opportunities through projects, discipline, documentation, English progress, and visible achievements."
   },
   {
-    title: "Public Portfolio",
+    title: "Public Proof",
     detail:
-      "Document technical progress through real projects, clear case studies, and an organized public profile."
+      "Use this portfolio as evidence. Instead of only saying what I can do, I want to show projects, progress, screenshots, results, and the path behind them."
   }
 ];
 

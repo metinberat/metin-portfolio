@@ -32,30 +32,53 @@ function About() {
     <section className="mx-auto grid w-full max-w-6xl gap-5 px-5 py-10 sm:px-6 sm:py-12 lg:px-8">
       <SectionHeader
         eyebrow="About Me"
-        title="A high school student in Istanbul building a project-based technical profile."
-        description="Metin Berat Dönmez is focused on AI tools, web development, PC hardware, and building a stronger profile for international education opportunities."
+        title="I learn by building, testing, comparing, and improving."
+        description="My interests connect through the same mindset: discipline, strategy, and visible progress."
       />
       <TitaniumCard className="grid gap-5 p-5 sm:gap-7 sm:p-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="space-y-4 text-[0.96rem] leading-8 text-graphite-700 sm:text-base">
+        <div className="space-y-5 text-[0.96rem] leading-8 text-graphite-700 sm:text-base">
           <p>
-            I am a high school student based in Istanbul, Türkiye, focused on
-            AI tools, web development, PC hardware, and international
-            education. I learn best by turning ideas into projects, then
-            documenting the decisions, progress, and results.
+            I am a high school student from Istanbul who learns by building,
+            testing, comparing, and improving. My interests are not separate
+            from each other: AI tools, web development, PC hardware,
+            competitive games, chess, English, and international education all
+            connect through the same mindset — discipline, strategy, and
+            visible progress.
           </p>
           <p>
-            Competitive gaming and chess shaped my discipline, review habits,
-            strategic thinking, and calm decision-making. This portfolio brings
-            those habits into one public record of my projects, learning
-            progress, achievements, and future applications.
+            I like systems. I like understanding how things work, why they
+            fail, and how they can be improved. That is why I spend time with AI
+            workflows, performance optimization, interface ideas, hardware
+            decisions, and projects like Akashi AI. I do not want this
+            portfolio to be a simple biography; I want it to become proof of
+            what I build, what I learn, and how I develop over time.
+          </p>
+          <p>
+            Competitive gaming and chess are part of my background, but they
+            are not the whole story. They trained me to review mistakes, stay
+            calm under pressure, think ahead, and improve through repetition. I
+            want to carry that same mentality into software, AI, English
+            communication, and future international opportunities.
           </p>
         </div>
         <div className="grid gap-3">
           {[
-            ["Location", "Istanbul, Türkiye"],
-            ["Current Focus", "AI, Web, Hardware"],
-            ["Profile", "High school student"],
-            ["Working Style", "Disciplined, analytical, project-based"]
+            [
+              "Mindset",
+              "Strategic, competitive, analytical, and improvement-focused."
+            ],
+            [
+              "Current Focus",
+              "AI workflows, web development, PC hardware, English, and portfolio building."
+            ],
+            [
+              "Working Style",
+              "I learn by creating real outputs, testing them, fixing mistakes, and documenting progress."
+            ],
+            [
+              "Direction",
+              "Building a stronger profile for AI projects, technology, and international education."
+            ]
           ].map(([label, value]) => (
             <div
               className="flex min-w-0 items-center justify-between gap-4 rounded-[1.35rem] border border-white/75 bg-white/50 p-4 shadow-soft backdrop-blur"
@@ -289,8 +312,8 @@ function DirectionGoals() {
     >
       <SectionHeader
         eyebrow="Direction & Goals"
-        title="A clear direction for projects, communication, and international opportunities."
-        description="Five priorities connect current learning with stronger technical work, communication, and future international applications."
+        title="Turning interests into visible evidence."
+        description="My goal is not just to list interests. I want to turn my interests into evidence: projects, screenshots, technical notes, public progress, and clear results. This portfolio is where I organize that direction."
       />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {goals.map((goal, index) => (
