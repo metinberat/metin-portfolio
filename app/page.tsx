@@ -102,6 +102,11 @@ function About() {
 }
 
 function FeaturedProjects() {
+  const primaryProject = featuredProjects.find((project) => project.featured);
+  const secondaryProjects = featuredProjects.filter(
+    (project) => !project.featured
+  );
+
   return (
     <section
       className="mx-auto w-full max-w-6xl overflow-hidden px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
@@ -112,51 +117,89 @@ function FeaturedProjects() {
         title="Project evidence first: AI, portfolio development, and hardware documentation."
         description="The portfolio now prioritizes concrete project direction, with visual slots prepared for screenshots and future case studies."
       />
-      <div className="grid min-w-0 gap-4 sm:gap-5 lg:grid-cols-3">
-        {featuredProjects.map((project) => (
-          <TitaniumCard
-            className={`flex w-full min-w-0 flex-col p-4 sm:p-5 ${
-              project.featured ? "lg:col-span-2" : ""
-            }`}
-            key={project.title}
-          >
-            <ProjectPreview
-              featured={project.featured}
-              image={project.image}
-              imageAlt={project.imageAlt}
-              imagePosition={project.imagePosition}
-              tag={project.tag}
-            />
-            <div className="flex min-w-0 flex-1 flex-col">
-              <div className="flex min-w-0 flex-wrap items-center gap-2">
-                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-50 shadow-soft">
-                  {project.status}
-                </span>
-                <span className="min-w-0 break-words text-xs font-semibold uppercase tracking-[0.14em] text-graphite-500">
-                  {project.type}
-                </span>
-              </div>
-              <h3 className="mt-4 min-w-0 break-words text-xl font-semibold leading-tight text-graphite-900 sm:text-2xl">
-                {project.title}
-              </h3>
-              <p className="mt-3 min-w-0 flex-1 break-words text-sm leading-6 text-graphite-700">
-                {project.description}
-              </p>
-              <div className="mt-5 flex min-w-0 flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <span
-                    className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-200 shadow-soft"
-                    key={item}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </TitaniumCard>
-        ))}
+      <div className="grid min-w-0 items-start gap-4 sm:gap-5 lg:grid-cols-[2fr_1fr]">
+        {primaryProject ? <ProjectCard project={primaryProject} /> : null}
+        <div className="grid min-w-0 gap-4 sm:gap-5">
+          {secondaryProjects.map((project) => (
+            <ProjectCard project={project} key={project.title} />
+          ))}
+        </div>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({
+  project
+}: {
+  project: (typeof featuredProjects)[number];
+}) {
+  return (
+    <TitaniumCard className="flex w-full min-w-0 flex-col p-4 sm:p-5">
+      <ProjectPreview
+        featured={project.featured}
+        image={project.image}
+        imageAlt={project.imageAlt}
+        imagePosition={project.imagePosition}
+        tag={project.tag}
+      />
+      <div className="flex min-w-0 flex-1 flex-col">
+        <div className="flex min-w-0 flex-wrap items-center gap-2">
+          <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-50 shadow-soft">
+            {project.status}
+          </span>
+          <span className="min-w-0 break-words text-xs font-semibold uppercase tracking-[0.14em] text-graphite-500">
+            {project.type}
+          </span>
+        </div>
+        <h3 className="mt-4 min-w-0 break-words text-xl font-semibold leading-tight text-graphite-900 sm:text-2xl">
+          {project.title}
+        </h3>
+        <p className="mt-3 min-w-0 break-words text-sm leading-6 text-graphite-700">
+          {project.description}
+        </p>
+        {project.caseStudy.length > 0 ? (
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            {project.caseStudy.map((item) => (
+              <div
+                className="rounded-[1.1rem] border border-white/15 bg-white/[0.055] p-4"
+                key={item.label}
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-graphite-500">
+                  {item.label}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-graphite-700">
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {project.highlights.length > 0 ? (
+          <ul className="mt-5 grid gap-2">
+            {project.highlights.map((item) => (
+              <li
+                className="flex gap-3 text-sm leading-6 text-graphite-700"
+                key={item}
+              >
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/55" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        <div className="mt-5 flex min-w-0 flex-wrap gap-2">
+          {project.stack.map((item) => (
+            <span
+              className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-200 shadow-soft"
+              key={item}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </TitaniumCard>
   );
 }
 
@@ -457,6 +500,16 @@ function Timeline() {
 }
 
 function Contact() {
+  const emailLink = contactLinks.find((link) =>
+    link.label.startsWith("Email")
+  );
+  const whatsappLink = contactLinks.find((link) =>
+    link.label.startsWith("WhatsApp")
+  );
+  const publicLinks = contactLinks.filter(
+    (link) => link !== emailLink && link !== whatsappLink
+  );
+
   return (
     <section
       className="mx-auto w-full max-w-6xl px-5 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-12 lg:px-8"
@@ -470,24 +523,52 @@ function Contact() {
               Contact
             </p>
             <h2 className="mt-4 max-w-2xl text-[2rem] font-semibold leading-tight tracking-tight text-graphite-900 sm:text-5xl">
-              Open to learning opportunities, project feedback, and future applications.
+              Open to project feedback, international education opportunities,
+              AI/web learning connections, and future collaboration.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-graphite-700">
-              For school opportunities, technical feedback, or collaboration
-              ideas, use the links here to connect with Metin&apos;s public
-              profiles.
+              Email is the best way to reach me for serious or detailed
+              communication.
             </p>
           </div>
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            {contactLinks.map((link) => (
+          <div className="grid min-w-0 gap-3 lg:w-[20rem]">
+            {emailLink ? (
               <a
-                className="rounded-full border border-white/80 bg-white/65 px-5 py-3 text-center text-sm font-semibold text-graphite-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-white"
-                href={link.href}
-                key={link.label}
+                className="rounded-[1.25rem] border border-white/20 bg-white/12 px-5 py-4 text-sm font-semibold text-graphite-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-white/15"
+                href={emailLink.href}
               >
-                {link.label}
+                {emailLink.label}
               </a>
-            ))}
+            ) : null}
+            <div className="grid grid-cols-2 gap-3">
+              {publicLinks.map((link) => (
+                <a
+                  className="rounded-full border border-white/15 bg-white/[0.055] px-4 py-3 text-center text-sm font-semibold text-graphite-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-white/10"
+                  href={link.href}
+                  key={link.label}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            {whatsappLink ? (
+              <div className="rounded-[1.25rem] border border-white/10 bg-black/15 p-4">
+                <a
+                  className="text-sm font-semibold text-graphite-900 transition hover:text-white"
+                  href={whatsappLink.href}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {whatsappLink.label}
+                </a>
+                <p className="mt-2 text-xs leading-5 text-graphite-500">
+                  For quick messages only. Email is preferred for serious
+                  communication.
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
       </TitaniumCard>

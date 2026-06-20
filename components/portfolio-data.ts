@@ -11,10 +11,33 @@ export const featuredProjects = [
     imagePosition: "center center",
     stack: ["AI Workflow", "Study Support", "Notes", "Productivity"],
     description:
-      "A personal AI assistant concept focused on productivity, study support, structured notes, and practical AI workflows."
+      "A private local AI assistant project focused on productivity, study support, structured notes, and practical personal workflows.",
+    caseStudy: [
+      {
+        label: "Problem",
+        detail:
+          "Study, memory, planning, and personal workflow can become scattered across different tools."
+      },
+      {
+        label: "Built",
+        detail:
+          "A private local AI assistant interface focused on personal productivity, project thinking, and a clean command-style workflow."
+      },
+      {
+        label: "Focus",
+        detail:
+          "AI-assisted studying, workflow organization, memory, planning, file-based context, and a serious monochrome interface."
+      },
+      {
+        label: "Next",
+        detail:
+          "Improve memory, file handling, study workflows, and more useful assistant-style actions over time."
+      }
+    ],
+    highlights: []
   },
   {
-    title: "Personal Portfolio Website",
+    title: "Metin Portfolio",
     status: "Live",
     type: "Next.js / Tailwind / Vercel",
     tag: "Web",
@@ -24,7 +47,14 @@ export const featuredProjects = [
     imagePosition: "center",
     stack: ["Next.js", "Tailwind", "Vercel"],
     description:
-      "A premium personal CV and portfolio website built to document projects, skills, achievements, and future applications."
+      "A personal portfolio built with Next.js, Tailwind, and Vercel to document projects, achievements, technical growth, goals, and public proof.",
+    caseStudy: [],
+    highlights: [
+      "Built as a living CV, not a static biography",
+      "Uses a dark liquid titanium and cinematic graphite visual direction",
+      "Shows projects, evidence screenshots, goals, and progress",
+      "Deployed publicly with GitHub and Vercel"
+    ]
   },
   {
     title: "Hardware Build Log",
@@ -37,7 +67,9 @@ export const featuredProjects = [
     imagePosition: "center",
     stack: ["Hardware", "Benchmarks", "Optimization"],
     description:
-      "A technical log for PC components, upgrade decisions, benchmark observations, troubleshooting, and performance optimization."
+      "A technical log for PC components, upgrade decisions, benchmark observations, troubleshooting, and performance optimization.",
+    caseStudy: [],
+    highlights: []
   }
 ];
 
@@ -221,7 +253,7 @@ export const timeline = [
 
 export const contactLinks = [
   {
-    label: "Contact",
+    label: "Email — Primary contact",
     href: "#contact"
   },
   {
@@ -231,5 +263,9 @@ export const contactLinks = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/"
+  },
+  {
+    label: "WhatsApp — Secondary contact",
+    href: "https://wa.me/994503471907"
   }
 ];
