@@ -1,87 +1,12 @@
-export const featuredProjects = [
-  {
-    title: "Akashi AI",
-    status: "In progress",
-    type: "AI assistant / study workflow project",
-    tag: "AI",
-    featured: true,
-    image: "/evidence/akashi-ai-interface.png",
-    imageAlt:
-      "Akashi AI desktop interface with system monitor, activity log, file upload, and command input panels",
-    imagePosition: "center center",
-    stack: ["AI Workflow", "Study Support", "Notes", "Productivity"],
-    description:
-      "A private local AI assistant project focused on productivity, study support, structured notes, and practical personal workflows.",
-    caseStudy: [
-      {
-        label: "Problem",
-        detail:
-          "Study, memory, planning, and personal workflow can become scattered across different tools."
-      },
-      {
-        label: "Built",
-        detail:
-          "A private local AI assistant interface focused on personal productivity, project thinking, and a clean command-style workflow."
-      },
-      {
-        label: "Focus",
-        detail:
-          "AI-assisted studying, workflow organization, memory, planning, file-based context, and a serious monochrome interface."
-      },
-      {
-        label: "Next",
-        detail:
-          "Improve memory, file handling, study workflows, and more useful assistant-style actions over time."
-      }
-    ],
-    highlights: []
-  },
-  {
-    title: "Metin Portfolio",
-    status: "Live",
-    type: "Next.js / Tailwind / Vercel",
-    tag: "Web",
-    featured: false,
-    image: null,
-    imageAlt: "",
-    imagePosition: "center",
-    stack: ["Next.js", "Tailwind", "Vercel"],
-    description:
-      "A personal portfolio built with Next.js, Tailwind, and Vercel to document projects, achievements, technical growth, goals, and public proof.",
-    caseStudy: [],
-    highlights: [
-      "Built as a living CV, not a static biography",
-      "Uses a dark liquid titanium and cinematic graphite visual direction",
-      "Shows projects, evidence screenshots, goals, and progress",
-      "Deployed publicly with GitHub and Vercel"
-    ]
-  },
-  {
-    title: "Hardware Build Log",
-    status: "Planned documentation",
-    type: "PC hardware / optimization",
-    tag: "Hardware",
-    featured: false,
-    image: null,
-    imageAlt: "",
-    imagePosition: "center",
-    stack: ["Hardware", "Benchmarks", "Optimization"],
-    description:
-      "A technical log for PC components, upgrade decisions, benchmark observations, troubleshooting, and performance optimization.",
-    caseStudy: [],
-    highlights: []
-  }
-];
-
 export const technicalSkills = [
   {
-    title: "AI Tools & Prompting",
+    title: "AI Systems & Agents",
     initial: "AI",
-    focus: "Active",
+    focus: "Building",
     items: [
-      "Prompting for research, study planning, and structured outputs",
-      "AI-assisted note organization and productivity workflows",
-      "Responsible use of AI tools for learning and project support"
+      "FastAPI backends and AI provider integrations (Gemini)",
+      "Intent detection, conversation memory, and unit testing in Python",
+      "Experimenting with computer-use agents and tool orchestration"
     ]
   },
   {
@@ -111,7 +36,7 @@ export const technicalSkills = [
     items: [
       "Organizing technical learning into clear summaries",
       "Preparing portfolio-ready explanations and project notes",
-      "Connecting research, documentation, and presentation quality"
+      "Explaining research and technical ideas in clear English"
     ]
   },
   {
@@ -119,9 +44,9 @@ export const technicalSkills = [
     initial: "DO",
     focus: "Documenting",
     items: [
-      "Project organization, version control habits, and changelog thinking",
+      "Organizing projects, using Git, and tracking changes between versions",
       "Turning learning progress into visible public evidence",
-      "Writing concise descriptions for applications and portfolio reviews"
+      "Writing short, clear project descriptions for applications"
     ]
   }
 ];
@@ -131,58 +56,58 @@ export const educationEnglish = [
     title: "High School",
     label: "Education",
     detail:
-      "High school student based in Istanbul, Türkiye, building a technical profile across AI, software, hardware, and international education."
+      "High school student in Istanbul, Türkiye. Outside of class, I work on AI, software, and hardware projects."
   },
   {
     title: "English Development",
     label: "English",
     detail:
-      "Developing English for academic, technical, and international opportunities, with a focus on clear communication and presentation."
+      "Improving my English for academic and technical use, with a focus on explaining my projects clearly."
   },
   {
     title: "Portfolio-Based Learning",
     label: "Learning",
     detail:
-      "Using projects and documentation to make learning visible, organized, and useful for future applications."
+      "I learn best by building projects and writing down what I learned, so my progress is easy to see."
   },
   {
     title: "International Direction",
     label: "Direction",
     detail:
-      "Preparing a stronger public profile for school opportunities, global education paths, and future collaborations."
+      "Preparing for international university applications by building a public record of my work."
   }
 ];
 
 export const goals = [
   {
-    title: "AI & Akashi AI",
+    title: "Independent AI Systems",
     detail:
-      "Develop Akashi AI and future assistant-style systems as practical projects, not just ideas. I want to explore how AI can help with studying, productivity, memory, planning, and personal workflows."
+      "Keep developing Absolute Akashi AI, my own project, into an assistant that can take real actions. Publish working demos, and write honestly about its limits and the technical decisions behind it."
   },
   {
     title: "Web & Product Building",
     detail:
-      "Improve my ability to turn ideas into clean digital products using modern web tools, interface design, deployment workflows, and structured development habits."
+      "Get better at turning ideas into working web products: interface design, clean code, and deployment."
   },
   {
     title: "PC Hardware & Optimization",
     detail:
-      "Continue learning how systems perform, how parts work together, and how optimization affects real-world experience in gaming, productivity, and creative work."
+      "Keep learning how PC parts work together and how optimization changes real performance in gaming, productivity, and creative work."
   },
   {
     title: "English & Communication",
     detail:
-      "Push my English toward advanced academic and professional communication so I can explain projects, apply internationally, and connect with global opportunities."
+      "Reach an advanced level of academic English so I can explain my projects clearly and study abroad."
   },
   {
     title: "International Education",
     detail:
-      "Build a stronger profile for future international education opportunities through projects, discipline, documentation, English progress, and visible achievements."
+      "Prepare for studying abroad with real projects, good documentation, stronger English, and results I can show."
   },
   {
     title: "Public Proof",
     detail:
-      "Use this portfolio as evidence. Instead of only saying what I can do, I want to show projects, progress, screenshots, results, and the path behind them."
+      "Use this portfolio as evidence. Instead of only saying what I can do, I want to show my projects, screenshots, results, and how I got there."
   }
 ];
 
@@ -229,43 +154,32 @@ export const timeline = [
     period: "Foundation",
     title: "Competitive discipline",
     description:
-      "Built improvement habits through chess, Valorant, and CS2: review, patience, communication, and calm decision-making."
+      "Chess, Valorant, and CS2 taught me to review my games, be patient, communicate with teammates, and make calm decisions."
   },
   {
     period: "Current",
     title: "AI and web development",
     description:
-      "Learning AI-assisted workflows and modern web development while using this portfolio as a real public project."
+      "Building AI systems and learning modern web development, with this portfolio as a real public project."
   },
   {
-    period: "V2.2",
-    title: "Project-first portfolio structure",
+    period: "V3.0",
+    title: "Three separate AI projects",
     description:
-      "Reorganized the site around featured projects, technical skills, education, goals, and compact competitive achievements."
+      "Split my AI work into three projects: my own Absolute Akashi AI, the assistant I customized from FatihMakes' Mark XXXIX, and my 3D/CGI agent research. Each one shows what is built, experimental, or planned."
   },
   {
     period: "Next",
     title: "Evidence and applications",
     description:
-      "Add screenshots, deeper project writeups, technical notes, and stronger materials for international education opportunities."
+      "Add demos, screenshots, more detailed project write-ups, and materials for university applications."
   }
 ];
 
+// Email and LinkedIn are left out until real addresses are provided.
 export const contactLinks = [
   {
-    label: "Email — Primary contact",
-    href: "#contact"
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/"
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/"
-  },
-  {
-    label: "WhatsApp — Secondary contact",
-    href: "https://wa.me/994503471907"
+    label: "GitHub — metinberat",
+    href: "https://github.com/metinberat"
   }
 ];

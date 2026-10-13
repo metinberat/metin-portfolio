@@ -3,12 +3,12 @@ import {
   competitiveAchievements,
   contactLinks,
   educationEnglish,
-  featuredProjects,
   goals,
   technicalSkills,
   timeline
 } from "@/components/portfolio-data";
 import { SectionHeader } from "@/components/section-header";
+import { FeaturedProjectsV3 } from "@/components/featured-projects-v3";
 import { TitaniumCard } from "@/components/titanium-card";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
       <Hero />
       <About />
       <DirectionGoals />
-      <FeaturedProjects />
+      <FeaturedProjectsV3 />
       <TechnicalSkills />
       <EducationEnglish />
       <CompetitiveAchievements />
@@ -47,18 +47,19 @@ function About() {
           </p>
           <p>
             I like systems. I like understanding how things work, why they
-            fail, and how they can be improved. That is why I spend time with AI
-            workflows, performance optimization, interface ideas, hardware
-            decisions, and projects like Akashi AI. I do not want this
-            portfolio to be a simple biography; I want it to become proof of
-            what I build, what I learn, and how I develop over time.
+            fail, and how they can be improved. That is why I spend time on AI
+            projects, performance optimization, interface ideas, and hardware.
+            My main project is Absolute Akashi AI, my own AI system, and I have
+            also customized an existing assistant. I do not want this portfolio
+            to be a simple biography. I want it to show what I build, what I
+            learn, and how I improve over time.
           </p>
           <p>
             Competitive gaming and chess are part of my background, but they
-            are not the whole story. They trained me to review mistakes, stay
-            calm under pressure, think ahead, and improve through repetition. I
-            want to carry that same mentality into software, AI, English
-            communication, and future international opportunities.
+            are not the whole story. They taught me to review my mistakes, stay
+            calm under pressure, think ahead, and improve through practice. I
+            want to bring the same mindset to software, AI, English, and my
+            future studies abroad.
           </p>
         </div>
         <div className="grid gap-3">
@@ -69,15 +70,15 @@ function About() {
             ],
             [
               "Current Focus",
-              "AI workflows, web development, PC hardware, English, and portfolio building."
+              "AI systems, web development, PC hardware, and English."
             ],
             [
               "Working Style",
-              "I learn by creating real outputs, testing them, fixing mistakes, and documenting progress."
+              "I learn by building real things, testing them, fixing mistakes, and writing down what I learned."
             ],
             [
               "Direction",
-              "Building a stronger profile for AI projects, technology, and international education."
+              "Preparing for international university applications with real projects and evidence."
             ]
           ].map(([label, value]) => (
             <div
@@ -101,170 +102,6 @@ function About() {
   );
 }
 
-function FeaturedProjects() {
-  const primaryProject = featuredProjects.find((project) => project.featured);
-  const secondaryProjects = featuredProjects.filter(
-    (project) => !project.featured
-  );
-
-  return (
-    <section
-      className="mx-auto w-full max-w-6xl overflow-hidden px-5 py-10 sm:px-6 sm:py-12 lg:px-8"
-      id="projects"
-    >
-      <SectionHeader
-        eyebrow="Featured Projects"
-        title="Project evidence first: AI, portfolio development, and hardware documentation."
-        description="The portfolio now prioritizes concrete project direction, with visual slots prepared for screenshots and future case studies."
-      />
-      <div className="grid min-w-0 items-start gap-4 sm:gap-5 lg:grid-cols-[2fr_1fr]">
-        {primaryProject ? <ProjectCard project={primaryProject} /> : null}
-        <div className="grid min-w-0 gap-4 sm:gap-5">
-          {secondaryProjects.map((project) => (
-            <ProjectCard project={project} key={project.title} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ProjectCard({
-  project
-}: {
-  project: (typeof featuredProjects)[number];
-}) {
-  return (
-    <TitaniumCard className="flex w-full min-w-0 flex-col p-4 sm:p-5">
-      <ProjectPreview
-        featured={project.featured}
-        image={project.image}
-        imageAlt={project.imageAlt}
-        imagePosition={project.imagePosition}
-        tag={project.tag}
-      />
-      <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex min-w-0 flex-wrap items-center gap-2">
-          <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-50 shadow-soft">
-            {project.status}
-          </span>
-          <span className="min-w-0 break-words text-xs font-semibold uppercase tracking-[0.14em] text-graphite-500">
-            {project.type}
-          </span>
-        </div>
-        <h3 className="mt-4 min-w-0 break-words text-xl font-semibold leading-tight text-graphite-900 sm:text-2xl">
-          {project.title}
-        </h3>
-        <p className="mt-3 min-w-0 break-words text-sm leading-6 text-graphite-700">
-          {project.description}
-        </p>
-        {project.caseStudy.length > 0 ? (
-          <div className="mt-5 grid gap-3 sm:grid-cols-2">
-            {project.caseStudy.map((item) => (
-              <div
-                className="rounded-[1.1rem] border border-white/15 bg-white/[0.055] p-4"
-                key={item.label}
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-graphite-500">
-                  {item.label}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-graphite-700">
-                  {item.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-        ) : null}
-        {project.highlights.length > 0 ? (
-          <ul className="mt-5 grid gap-2">
-            {project.highlights.map((item) => (
-              <li
-                className="flex gap-3 text-sm leading-6 text-graphite-700"
-                key={item}
-              >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/55" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-        <div className="mt-5 flex min-w-0 flex-wrap gap-2">
-          {project.stack.map((item) => (
-            <span
-              className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-200 shadow-soft"
-              key={item}
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
-    </TitaniumCard>
-  );
-}
-
-function ProjectPreview({
-  featured,
-  image,
-  imageAlt,
-  imagePosition,
-  tag
-}: {
-  featured: boolean;
-  image: string | null;
-  imageAlt: string;
-  imagePosition: string;
-  tag: string;
-}) {
-  return (
-    <div
-      className={`mb-4 min-w-0 rounded-[1.35rem] border border-white/15 bg-[radial-gradient(circle_at_28%_8%,rgba(255,255,255,0.22),transparent_34%),linear-gradient(135deg,rgba(112,116,124,0.68),rgba(22,23,26,0.92)_58%,rgba(5,5,6,0.96))] p-3 shadow-soft sm:mb-5 sm:rounded-[1.5rem] sm:p-4 ${
-        featured ? "h-48 sm:h-72" : "h-32 sm:aspect-[4/3] sm:h-auto"
-      }`}
-    >
-      <div className="relative flex h-full min-w-0 flex-col justify-between overflow-hidden rounded-[1rem] border border-white/15 bg-black/25 p-3 backdrop-blur sm:rounded-[1.1rem] sm:p-4">
-        {image ? (
-          <>
-            <Image
-              alt={imageAlt}
-              className="object-cover"
-              fill
-              sizes="(min-width: 1024px) 66vw, 100vw"
-              src={image}
-              style={{ objectPosition: imagePosition }}
-              unoptimized
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/25" />
-          </>
-        ) : (
-          <div className="absolute inset-0 fine-grid opacity-35" />
-        )}
-        <div className="relative flex items-center justify-between gap-3">
-          <span className="w-fit max-w-full rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-titanium-50 shadow-soft">
-            {tag}
-          </span>
-        </div>
-        {!image ? (
-          <div className="relative grid gap-2">
-            <div className="h-10 rounded-2xl border border-white/10 bg-[linear-gradient(100deg,rgba(244,244,246,0.86),rgba(132,136,146,0.44)_44%,rgba(5,5,6,0.68))] shadow-[0_0_34px_rgba(255,255,255,0.10)] sm:h-16" />
-            {featured ? (
-            <div className="grid grid-cols-3 gap-2">
-              <div className="h-9 rounded-xl border border-white/12 bg-white/12" />
-              <div className="h-9 rounded-xl border border-white/10 bg-white/8" />
-              <div className="h-9 rounded-xl border border-white/8 bg-black/20" />
-            </div>
-            ) : null}
-          </div>
-        ) : (
-          <span className="relative w-fit rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-titanium-200 backdrop-blur">
-            Interface preview
-          </span>
-        )}
-      </div>
-    </div>
-  );
-}
-
 function TechnicalSkills() {
   return (
     <section
@@ -273,8 +110,8 @@ function TechnicalSkills() {
     >
       <SectionHeader
         eyebrow="Technical Skills"
-        title="A practical skill map for AI workflows, web basics, hardware, and documentation."
-        description="The skills are organized around what supports real projects: learning tools, implementation, optimization, presentation, and project organization."
+        title="Skills I use in my projects: AI systems, web development, hardware, and documentation."
+        description="I grouped my skills by how I use them: building, testing, optimizing, and explaining my work."
       />
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         {technicalSkills.map((group) => (
@@ -320,8 +157,8 @@ function EducationEnglish() {
     >
       <SectionHeader
         eyebrow="Education & English"
-        title="Academic direction, English development, and portfolio-based learning."
-        description="This section gives the CV a stronger education foundation without making the page feel formal or heavy."
+        title="School, English, and learning through projects."
+        description="Where I am in my education, and how I am working on my English and my learning habits."
       />
       <div className="grid gap-4 md:grid-cols-2">
         {educationEnglish.map((item) => (
@@ -356,7 +193,7 @@ function DirectionGoals() {
       <SectionHeader
         eyebrow="Direction & Goals"
         title="Turning interests into visible evidence."
-        description="My goal is not just to list interests. I want to turn my interests into evidence: projects, screenshots, technical notes, public progress, and clear results. This portfolio is where I organize that direction."
+        description="I do not want to just list my interests. I want to turn them into evidence: projects, screenshots, technical notes, and clear results. This portfolio is where I keep track of that."
       />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {goals.map((goal, index) => (
@@ -394,8 +231,8 @@ function CompetitiveAchievements() {
     >
       <SectionHeader
         eyebrow="Competitive Achievements"
-        title="Compact milestones from competitive gaming and chess."
-        description="Kept secondary in the page hierarchy, these achievements show discipline, review habits, and performance under pressure."
+        title="Results from competitive gaming and chess."
+        description="These are not my main focus, but they taught me discipline, how to review my mistakes, and how to stay calm under pressure."
       />
       <div className="grid gap-4 md:grid-cols-3">
         {competitiveAchievements.map((achievement) => (
@@ -467,8 +304,8 @@ function Timeline() {
     >
       <SectionHeader
         eyebrow="Timeline"
-        title="A project-first path from learning to public evidence."
-        description="The timeline connects AI-assisted projects, web development, education preparation, and compact competitive discipline."
+        title="How my work has developed so far."
+        description="From competitive games to AI projects and web development, and what comes next."
       />
       <TitaniumCard className="p-4 sm:p-8">
         <div className="grid gap-4">
@@ -500,16 +337,6 @@ function Timeline() {
 }
 
 function Contact() {
-  const emailLink = contactLinks.find((link) =>
-    link.label.startsWith("Email")
-  );
-  const whatsappLink = contactLinks.find((link) =>
-    link.label.startsWith("WhatsApp")
-  );
-  const publicLinks = contactLinks.filter(
-    (link) => link !== emailLink && link !== whatsappLink
-  );
-
   return (
     <section
       className="mx-auto w-full max-w-6xl px-5 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-12 lg:px-8"
@@ -523,52 +350,26 @@ function Contact() {
               Contact
             </p>
             <h2 className="mt-4 max-w-2xl text-[2rem] font-semibold leading-tight tracking-tight text-graphite-900 sm:text-5xl">
-              Open to project feedback, international education opportunities,
-              AI/web learning connections, and future collaboration.
+              Open to feedback on my projects, education opportunities, and
+              working together on AI or web projects.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-graphite-700">
-              Email is the best way to reach me for serious or detailed
-              communication.
+              You can see my code on GitHub. I will add a contact email
+              address here soon.
             </p>
           </div>
           <div className="grid min-w-0 gap-3 lg:w-[20rem]">
-            {emailLink ? (
+            {contactLinks.map((link) => (
               <a
-                className="rounded-[1.25rem] border border-white/20 bg-white/12 px-5 py-4 text-sm font-semibold text-graphite-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-white/15"
-                href={emailLink.href}
+                className="rounded-[1.25rem] border border-white/20 bg-white/12 px-5 py-4 text-center text-sm font-semibold text-graphite-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-white/15"
+                href={link.href}
+                key={link.label}
+                rel="noopener noreferrer"
+                target="_blank"
               >
-                {emailLink.label}
+                {link.label} <span aria-hidden="true">↗</span>
               </a>
-            ) : null}
-            <div className="grid grid-cols-2 gap-3">
-              {publicLinks.map((link) => (
-                <a
-                  className="rounded-full border border-white/15 bg-white/[0.055] px-4 py-3 text-center text-sm font-semibold text-graphite-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-white/10"
-                  href={link.href}
-                  key={link.label}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-            {whatsappLink ? (
-              <div className="rounded-[1.25rem] border border-white/10 bg-black/15 p-4">
-                <a
-                  className="text-sm font-semibold text-graphite-900 transition hover:text-white"
-                  href={whatsappLink.href}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  {whatsappLink.label}
-                </a>
-                <p className="mt-2 text-xs leading-5 text-graphite-500">
-                  For quick messages only. Email is preferred for serious
-                  communication.
-                </p>
-              </div>
-            ) : null}
+            ))}
           </div>
         </div>
       </TitaniumCard>
@@ -587,9 +388,9 @@ function Hero() {
           Metin Berat Dönmez
         </h1>
         <p className="mt-5 max-w-xl text-base leading-8 text-titanium-300 sm:mt-6 sm:text-lg">
-          A project-first personal CV documenting Akashi AI, web development,
-          hardware knowledge, English growth, and future international
-          education goals.
+          I build AI systems and web projects. This portfolio shows my work:
+          Absolute Akashi AI, an assistant I customized, and a 3D/CGI agent
+          that I am still planning.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
@@ -638,11 +439,11 @@ function Hero() {
           </div>
           <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
             <p className="max-w-xs text-sm leading-6 text-graphite-700">
-              Premium student portfolio for projects, skills, goals,
-              education, and selected achievements.
+              Projects, skills, goals, education, and selected achievements
+              in one place.
             </p>
             <p className="text-right text-sm font-semibold text-graphite-900">
-              V2.2
+              V3.5
             </p>
           </div>
         </div>
