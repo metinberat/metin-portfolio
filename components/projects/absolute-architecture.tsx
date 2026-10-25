@@ -9,7 +9,7 @@ import {
 export function AbsoluteArchitecture() {
   return (
     <DiagramFigure
-      ariaLabel="Architecture diagram of Absolute Akashi AI"
+      ariaLabel="Architecture diagram of Absolute AI"
       label="System architecture"
       note="Diagram drawn from the repository documentation — not a screenshot"
     >

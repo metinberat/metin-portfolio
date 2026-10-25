@@ -9,13 +9,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Metin Berat Dönmez | AI, Software & Student Portfolio",
+  title: "Metin Berat Dönmez | Student Portfolio",
   description:
-    "Portfolio of Metin Berat Dönmez, a high school student in Istanbul who builds AI systems: Absolute Akashi AI, a customized Akashi assistant, and a planned 3D/CGI agent.",
+    "Metin Berat Dönmez is a high school student in Istanbul who builds AI systems: Absolute AI, FORM 3D and Akashi Persona. Also football, chess and travel.",
   openGraph: {
-    title: "Metin Berat Dönmez | AI, Software & Student Portfolio",
+    title: "Metin Berat Dönmez | Student Portfolio",
     description:
-      "A student portfolio with three separate AI projects, showing what is built, what is experimental, and what is still planned.",
+      "A short personal portfolio: who I am, what I have built, and what I do beyond engineering.",
     type: "website"
   }
 };

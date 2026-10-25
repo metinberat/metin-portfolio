@@ -101,14 +101,14 @@ export function PersonaExtension() {
             </p>
             <p>
               My changes focus on personality, speaking style, dialogue and
-              behavior. This project is separate from Absolute Akashi AI.
+              behavior. This project is separate from Absolute AI.
             </p>
           </>
         }
         label="Customization project · Based on Mark XXXIX"
         number="03"
         status="Modified existing project"
-        title="Akashi AI — Persona Extension"
+        title="Akashi Persona"
       />
 
       <MediaFrame

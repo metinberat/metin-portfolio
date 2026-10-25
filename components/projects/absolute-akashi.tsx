@@ -198,7 +198,7 @@ export function AbsoluteAkashi() {
         label="Flagship project · Independently developed"
         number="01"
         status="Active development"
-        title="Absolute Akashi AI"
+        title="Absolute AI"
       />
 
       {/* Media */}
@@ -224,7 +224,7 @@ export function AbsoluteAkashi() {
         kind="Real screenshots"
       >
         <Image
-          alt="Five panels from the Absolute Akashi AI Windows app: Agent Dock with component status, a research result with six sources, the live activity log, the system monitor and quick actions"
+          alt="Five panels from the Absolute AI Windows app: Agent Dock with component status, a research result with six sources, the live activity log, the system monitor and quick actions"
           className="absolute inset-0 h-full w-full object-cover"
           fill
           priority={false}
@@ -307,7 +307,7 @@ export function AbsoluteAkashi() {
         reflection={
           <Reflection>
             <p>
-              I started Absolute Akashi AI because I wanted an assistant that
+              I started Absolute AI because I wanted an assistant that
               could do more than answer messages. A chatbot can explain how to
               fix something, but I wanted a system that could take an action,
               check the result and continue. That goal shaped my main
