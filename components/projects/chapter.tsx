@@ -53,12 +53,12 @@ export function ChapterHeader({
           </Eyebrow>
           <Pill>{status}</Pill>
         </div>
-        <h3
+        <h1
           className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl"
           id={`${id}-title`}
         >
           {title}
-        </h3>
+        </h1>
         <div className="mt-4 max-w-2xl space-y-3 text-base leading-8 text-zinc-300">
           {intro}
         </div>

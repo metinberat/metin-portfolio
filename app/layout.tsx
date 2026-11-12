@@ -1,23 +1,50 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { PERSON_DESCRIPTION, PERSON_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
-  subsets: ["latin"],
+  // latin-ext covers Turkish letters such as İ, ş and ğ.
+  subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
   display: "swap"
 });
 
 export const metadata: Metadata = {
-  title: "Metin Berat Dönmez | Student Portfolio",
-  description:
-    "Metin Berat Dönmez is a high school student in Istanbul who builds AI systems: Absolute AI, FORM 3D and Akashi Persona. Also football, chess and travel.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: `%s | ${PERSON_NAME}`
+  },
+  description: PERSON_DESCRIPTION,
+  applicationName: `${PERSON_NAME} Portfolio`,
+  authors: [{ name: PERSON_NAME, url: SITE_URL }],
+  creator: PERSON_NAME,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Metin Berat Dönmez | Student Portfolio",
-    description:
-      "A short personal portfolio: who I am, what I have built, and what I do beyond engineering.",
-    type: "website"
+    type: "profile",
+    url: "/",
+    siteName: `${PERSON_NAME} Portfolio`,
+    title: SITE_TITLE,
+    description: PERSON_DESCRIPTION,
+    locale: "en_US",
+    firstName: "Metin Berat",
+    lastName: "Dönmez"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: PERSON_DESCRIPTION
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" }
   }
+};
+
+export const viewport: Viewport = {
+  themeColor: "#070708"
 };
 
 export default function RootLayout({

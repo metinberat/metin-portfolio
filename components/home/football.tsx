@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SectionLabel } from "@/components/home/section-label";
+import { TFF_RECORD_URL } from "@/lib/site";
 import team from "@/public/photos/football-team.jpg";
 
 export function Football() {
@@ -9,7 +10,7 @@ export function Football() {
       className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-6 lg:px-8 lg:py-20"
       id="football"
     >
-      <SectionLabel label="Football" number="03" />
+      <SectionLabel label="Football" number="04" />
 
       <div className="mt-10 grid items-center gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-14">
         <figure className="group">
@@ -47,6 +48,15 @@ export function Football() {
               still matter to me outside the field.
             </p>
           </div>
+          <a
+            className="mt-7 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-semibold text-titanium-50 shadow-soft transition duration-200 hover:-translate-y-0.5 hover:border-white/55 hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:w-auto"
+            href={TFF_RECORD_URL}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            View Official TFF Player Record <span aria-hidden="true">↗</span>
+            <span className="sr-only">(opens in a new tab)</span>
+          </a>
         </div>
       </div>
     </section>

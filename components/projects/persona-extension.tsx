@@ -4,7 +4,9 @@ import {
   FactRow,
   ProjectChapter
 } from "@/components/projects/chapter";
-import { MediaFrame, PendingMedia } from "@/components/showcase/media-frame";
+import Image from "next/image";
+import personaShot from "@/public/evidence/persona/akashi-persona-2026-06-18.png";
+import { MediaFrame } from "@/components/showcase/media-frame";
 import {
   BulletList,
   Eyebrow,
@@ -57,7 +59,7 @@ const changes: { title: string; status: Status; detail: string }[] = [
 const evidence: { item: string; done: boolean }[] = [
   { item: "Original project and creator credited", done: true },
   { item: "My code compared with the original (2 May 2026 version)", done: true },
-  { item: "Screenshot without third-party artwork", done: false },
+  { item: "Screenshot of my customized version", done: true },
   { item: "Short recording of a conversation in the Akashi style", done: false }
 ];
 
@@ -101,7 +103,8 @@ export function PersonaExtension() {
             </p>
             <p>
               My changes focus on personality, speaking style, dialogue and
-              behavior. This project is separate from Absolute AI.
+              behavior, all built around Akashi Seijūrō, a character from the
+              manga Kuroko no Basket. This project is separate from Absolute AI.
             </p>
           </>
         }
@@ -111,18 +114,13 @@ export function PersonaExtension() {
         title="Akashi Persona"
       />
 
-      <MediaFrame
-        caption="The old screenshot used copyrighted artwork, so it was removed. A new, authentic screenshot will be added later."
-        kind="In preparation"
-      >
-        <PendingMedia
-          detail="Screenshot or recording of my customized version, without third-party artwork."
-          items={[
-            "A conversation in the Akashi speaking style",
-            "Casual chat compared with a real task request",
-            "The monochrome A.K.A.S.H.I. interface"
-          ]}
-          title="Evidence in preparation"
+      <MediaFrame caption="Real screenshot of my customized version, 18 Jun 2026. Background art: Akashi Seijūrō from Kuroko no Basket © Tadatoshi Fujimaki, the character this persona is built around." kind="Real screenshots">
+        <Image
+          alt="The customized A.K.A.S.H.I. assistant on Windows: system monitor, activity log, file upload and command input around an Akashi Seijūrō manga drawing"
+          className="absolute inset-0 h-full w-full object-cover"
+          placeholder="blur"
+          sizes="(min-width: 1280px) 1100px, 100vw"
+          src={personaShot}
         />
       </MediaFrame>
 

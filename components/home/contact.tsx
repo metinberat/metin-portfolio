@@ -1,7 +1,7 @@
 import { SectionLabel } from "@/components/home/section-label";
 
 // GitHub is the only confirmed public contact method for now.
-const GITHUB = "https://github.com/metinberat";
+import { GITHUB_URL as GITHUB } from "@/lib/site";
 
 export function Contact() {
   return (
@@ -10,7 +10,7 @@ export function Contact() {
       className="mx-auto w-full max-w-6xl px-5 pb-14 pt-16 sm:px-6 lg:px-8 lg:pb-16 lg:pt-20"
       id="contact"
     >
-      <SectionLabel label="Contact" number="05" />
+      <SectionLabel label="Contact" number="06" />
       <div className="mt-10 flex flex-col gap-8 border-t border-white/10 pt-10 lg:flex-row lg:items-end lg:justify-between">
         <h2
           className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-titanium-50 sm:text-6xl"

@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { SectionLabel } from "@/components/home/section-label";
 import absoluteShot from "@/public/evidence/absolute/absolute-ai-2026-09-21.png";
 import formShot from "@/public/evidence/form-3d/form-3d-rig-2026-10-03.webp";
+import personaShot from "@/public/evidence/persona/akashi-persona-2026-06-18.png";
 
 type Project = {
   number: string;
@@ -14,35 +15,6 @@ type Project = {
   caption: string;
   visual: ReactNode;
 };
-
-// Real lines from core/akashi_persona.py in the customized Mark XXXIX project.
-const personaLines = [
-  "You respond in the user's language.",
-  "If the user is casual, respond naturally.",
-  "If the user gives a task, execute directly."
-];
-
-function PersonaVisual() {
-  return (
-    <div className="flex aspect-[16/10] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0b0c0e]">
-      <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="ml-3 font-mono text-xs text-titanium-500">core/akashi_persona.py</span>
-      </div>
-      <div className="flex flex-1 flex-col justify-center px-5 font-mono text-[0.8rem] leading-7 text-titanium-300 sm:px-10 sm:text-base sm:leading-9">
-        <p className="text-titanium-50">You are A.K.A.S.H.I.</p>
-        {personaLines.map((line) => (
-          <p key={line}>
-            <span className="text-titanium-500">- </span>
-            {line}
-          </p>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 const projects: Project[] = [
   {
@@ -89,8 +61,16 @@ const projects: Project[] = [
     summary:
       "A customized version of Mark XXXIX, an assistant created by FatihMakes. I didn't build the original. I rewrote its personality and speaking style, restyled the interface and improved startup error handling.",
     href: "/projects/akashi-persona",
-    caption: "Lines from my persona prompt.",
-    visual: <PersonaVisual />
+    caption: "Real screenshot of my version, 18 Jun 2026. Background: Akashi Seijūrō, Kuroko no Basket © Tadatoshi Fujimaki.",
+    visual: (
+      <Image
+        alt="The customized A.K.A.S.H.I. assistant on Windows with an Akashi Seijūrō manga drawing as its background"
+        className="h-auto w-full rounded-2xl border border-white/10"
+        placeholder="blur"
+        sizes="(min-width: 1024px) 640px, 100vw"
+        src={personaShot}
+      />
+    )
   }
 ];
 

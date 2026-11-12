@@ -15,7 +15,7 @@ export function Hardware() {
       className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-6 lg:px-8 lg:py-20"
       id="hardware"
     >
-      <SectionLabel label="Hardware & Competitive Achievements" number="04" />
+      <SectionLabel label="Hardware & Competitive Achievements" number="05" />
 
       <div className="mt-10 grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
         <figure className="group lg:col-span-7">

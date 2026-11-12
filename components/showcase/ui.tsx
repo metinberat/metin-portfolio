@@ -101,9 +101,9 @@ export function SubHeading({
     <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
       <div>
         <Eyebrow>{label}</Eyebrow>
-        <h4 className="mt-2 text-lg font-semibold tracking-tight text-white sm:text-xl">
+        <h2 className="mt-2 text-lg font-semibold tracking-tight text-white sm:text-xl">
           {title}
-        </h4>
+        </h2>
       </div>
       {aside}
     </div>
