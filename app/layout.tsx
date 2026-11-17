@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" }
+  },
+  verification: {
+    google: "9g2lGje3gHKMimRD3dmrOaxe6x-sP1ecC-ZXcGXj9AE"
   }
 };
 
