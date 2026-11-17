@@ -18,12 +18,6 @@ export const TFF_RECORD_URL = "https://www.tff.org/Default.aspx?pageId=30&kisiID
 // Public profiles that are verified to belong to Metin.
 export const SAME_AS = [GITHUB_URL, TFF_RECORD_URL];
 
-export const PROJECT_PAGES = [
-  { path: "/projects/absolute-ai", name: "Absolute AI" },
-  { path: "/projects/form-3d", name: "FORM 3D" },
-  { path: "/projects/akashi-persona", name: "Akashi Persona" }
-] as const;
-
 // Child pages that set their own openGraph must list the image again,
 // because Next.js replaces (not merges) the openGraph object.
 export const SHARE_IMAGE = {

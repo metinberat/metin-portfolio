@@ -41,7 +41,7 @@ const projects: Project[] = [
     title: "FORM 3D",
     tag: "Separate app · Prototype",
     summary:
-      "A desktop app that builds 3D characters in Blender: body, clothes, a 57-joint skeleton and export. The prototype works on synthetic test data, and artistic quality is still limited.",
+      "My desktop app that builds 3D characters in Blender: body, clothes, a 57-joint skeleton and export. The prototype works on synthetic test data, and artistic quality is still limited.",
     href: "/projects/form-3d",
     caption: "Real screenshot: a rigged test character, 3 Oct 2026.",
     visual: (

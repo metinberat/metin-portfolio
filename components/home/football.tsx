@@ -17,7 +17,7 @@ export function Football() {
           <div className="overflow-hidden rounded-2xl border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.55)]">
             {/* On desktop the photo is cropped to 330px high; the whole team stays in frame. */}
             <Image
-              alt="Metin with his football team on the pitch, all in red training kits"
+              alt="Metin Berat Dönmez with his football team on the pitch, all in red training kits"
               className="h-auto w-full transition duration-700 motion-safe:group-hover:scale-[1.02] lg:h-[330px] lg:object-cover lg:object-center"
               placeholder="blur"
               sizes="(min-width: 1024px) 600px, 100vw"

@@ -21,7 +21,7 @@ export function Hardware() {
         <figure className="group lg:col-span-7">
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-black shadow-[0_40px_100px_rgba(0,0,0,0.55)]">
             <Image
-              alt="Metin's desk setup at night: two monitors, a keyboard and a white PC case with green lighting"
+              alt="Metin Berat Dönmez's desk setup at night: two monitors, a keyboard and a white PC case with green lighting"
               className="h-auto w-full transition duration-700 motion-safe:group-hover:scale-[1.02]"
               placeholder="blur"
               sizes="(min-width: 1024px) 640px, 100vw"

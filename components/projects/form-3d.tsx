@@ -144,7 +144,7 @@ export function Form3D() {
         intro={
           <>
             <p>
-              A desktop app that builds a 3D character in Blender from a short
+              A desktop app I am building that creates a 3D character in Blender from a short
               design: body, face, clothes, a skeleton, simple animation and
               export. It runs as its own app with its own local runtime, but it
               reuses some engine code from the Absolute AI repository.

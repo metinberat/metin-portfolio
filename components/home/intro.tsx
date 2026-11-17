@@ -78,12 +78,12 @@ export function Intro() {
 
       <div className="mt-12 grid grid-cols-2 items-start gap-4 sm:gap-6 md:ml-auto md:w-[64%] lg:mt-14 lg:w-[54%]">
         <Photo
-          alt="Metin standing in front of the Eiffel Tower in Paris"
+          alt="Metin Berat Dönmez standing in front of the Eiffel Tower in Paris"
           place="Paris"
           src={paris}
         />
         <Photo
-          alt="Metin standing in front of the Trevi Fountain in Rome"
+          alt="Metin Berat Dönmez standing in front of the Trevi Fountain in Rome"
           className="mt-12 sm:mt-20"
           place="Rome"
           src={rome}
